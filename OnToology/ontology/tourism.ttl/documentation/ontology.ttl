@@ -1,0 +1,283 @@
+@prefix : <https://auroral.iot.linkeddata.es/def/tourism#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://auroral.iot.linkeddata.es/def/tourism#> .
+
+<https://auroral.iot.linkeddata.es/def/tourism#> rdf:type owl:Ontology ;
+                                                  <http://purl.org/dc/terms/creator> "Andrea Cimmino" ,
+                                                                                     "Juan Cano" ,
+                                                                                     "María Poveda-Villalón" ,
+                                                                                     "Raúl Garcia-Castro" ;
+                                                  owl:versionInfo "0.0.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/terms/language
+<http://purl.org/dc/terms/language> rdf:type owl:ObjectProperty ;
+                                    rdfs:label "language" .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#location
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:ObjectProperty ;
+                                                   rdfs:label "location" .
+
+
+###  http://xmlns.com/foaf/0.1/depiction
+<http://xmlns.com/foaf/0.1/depiction> rdf:type owl:ObjectProperty ;
+                                      rdfs:label "depiction" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#coverImage
+:coverImage rdf:type owl:ObjectProperty ;
+            rdfs:domain :Activity ;
+            rdfs:range <http://xmlns.com/foaf/0.1/Image> ;
+            rdfs:label "cover image" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice
+:hasStartingPrice rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Activity ;
+                  rdfs:range :Price ;
+                  rdfs:label "has starting price" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#inCurrency
+:inCurrency rdf:type owl:ObjectProperty ;
+            rdfs:domain :Price ;
+            rdfs:range :Currency ;
+            rdfs:label "in currency" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#mapPoint
+:mapPoint rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range <http://xmlns.com/foaf/0.1/Image> ,
+                     :ActivityDifficulty ;
+          rdfs:label "map point" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#postedToChannel
+:postedToChannel rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Activity ;
+                 rdfs:range :Channel ;
+                 rdfs:label "posted to channel" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Activity ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "description" .
+
+
+###  http://purl.org/dc/terms/lastModified
+<http://purl.org/dc/terms/lastModified> rdf:type owl:DatatypeProperty ;
+                                        rdfs:label "last modified" .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:DatatypeProperty ;
+                                  rdfs:label "rights" .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty ;
+                                 rdfs:label "title" .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
+<http://www.w3.org/2003/01/geo/wgs84_pos#alt> rdf:type owl:DatatypeProperty ;
+                                              rdfs:label "alt" .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type owl:DatatypeProperty ;
+                                              rdfs:label "lat" .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type owl:DatatypeProperty ;
+                                               rdfs:label "long" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#amount
+:amount rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Price ;
+        rdfs:label "amount" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#channelName
+:channelName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Channel ;
+             rdfs:range xsd:string ;
+             rdfs:label "channel name" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#endDate
+:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:date ;
+         rdfs:label "end date" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL
+:externalBookingURL rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Activity ;
+                    rdfs:label "external booking u r l" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription
+:hiddenDescription rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Activity ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "hidden description" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#identifier
+:identifier rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Activity ;
+            rdfs:range xsd:string ;
+            rdfs:label "identifier" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#isBookable
+:isBookable rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Activity ;
+            rdfs:range xsd:boolean ;
+            rdfs:label "is bookable" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#longDescription
+:longDescription rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Activity ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "long description" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#shortDescription
+:shortDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Activity ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "short description" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#startDate
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:date ;
+           rdfs:label "start date" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/dc/terms/LinguisticSystem
+<http://purl.org/dc/terms/LinguisticSystem> rdf:type owl:Class ;
+                                            rdfs:label "Linguistic System" .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#Point
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> rdf:type owl:Class ;
+                                                rdfs:label "Point" .
+
+
+###  http://xmlns.com/foaf/0.1/Image
+<http://xmlns.com/foaf/0.1/Image> rdf:type owl:Class ;
+                                  rdfs:label "Image" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Activity
+:Activity rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :coverImage ;
+                            owl:cardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
+          rdfs:label "Activity" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty
+:ActivityDifficulty rdf:type owl:Class ;
+                    rdfs:subClassOf <https://www.w3.org/ns/org#Concept> ;
+                    rdfs:label "Activity Difficulty" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Channel
+:Channel rdf:type owl:Class ;
+         rdfs:label "Channel" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Currency
+:Currency rdf:type owl:Class ;
+          rdfs:label "Currency" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Price
+:Price rdf:type owl:Class ;
+       rdfs:label "Price" .
+
+
+###  https://www.w3.org/ns/org#Concept
+<https://www.w3.org/ns/org#Concept> rdf:type owl:Class ;
+                                    rdfs:label "Concept" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://auroral.iot.linkeddata.es/def/tourism#
+<https://auroral.iot.linkeddata.es/def/tourism#> rdf:type owl:NamedIndividual ;
+                                                 <http://purl.org/dc/terms/description> "Ontology code created by Chowlk" ;
+                                                 <http://purl.org/dc/terms/title> "The AURORAL Tourism Ontology" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Easy
+:Easy rdf:type owl:NamedIndividual ,
+               :ActivityDifficulty .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Hard
+:Hard rdf:type owl:NamedIndividual ,
+               :ActivityDifficulty .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Medium
+:Medium rdf:type owl:NamedIndividual ,
+                 :ActivityDifficulty .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#VeryEasy
+:VeryEasy rdf:type owl:NamedIndividual ,
+                   :ActivityDifficulty .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#VeryHard
+:VeryHard rdf:type owl:NamedIndividual ,
+                   :ActivityDifficulty .
+
+
+###  Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
