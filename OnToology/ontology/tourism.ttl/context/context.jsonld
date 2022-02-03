@@ -1,0 +1,135 @@
+{
+  "@context" : {
+    "lastModified" : {
+      "@id" : "http://purl.org/dc/terms/lastModified"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "startDate" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#startDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "ActivityDifficulty" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"
+    },
+    "Thing" : {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    },
+    "longDescription" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#longDescription",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "hasStartingPrice" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice",
+      "@type" : "@id"
+    },
+    "depiction" : {
+      "@id" : "http://xmlns.com/foaf/0.1/depiction",
+      "@type" : "@id"
+    },
+    "long" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Concept" : {
+      "@id" : "https://www.w3.org/ns/org#Concept"
+    },
+    "externalBookingURL" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL"
+    },
+    "Activity" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#Activity"
+    },
+    "LinguisticSystem" : {
+      "@id" : "http://purl.org/dc/terms/LinguisticSystem"
+    },
+    "Price" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#Price"
+    },
+    "mapPoint" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#mapPoint",
+      "@type" : "@id"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator"
+    },
+    "location" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#location",
+      "@type" : "@id"
+    },
+    "rights" : {
+      "@id" : "http://purl.org/dc/terms/rights"
+    },
+    "shortDescription" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#shortDescription",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "alt" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#alt"
+    },
+    "identifier" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#identifier",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "coverImage" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#coverImage",
+      "@type" : "@id"
+    },
+    "Point" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#Point"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "amount" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#amount"
+    },
+    "lat" : {
+      "@id" : "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+    },
+    "isBookable" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#isBookable",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "channelName" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#channelName",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Channel" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#Channel"
+    },
+    "inCurrency" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#inCurrency",
+      "@type" : "@id"
+    },
+    "hiddenDescription" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Currency" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#Currency"
+    },
+    "Image" : {
+      "@id" : "http://xmlns.com/foaf/0.1/Image"
+    },
+    "language" : {
+      "@id" : "http://purl.org/dc/terms/language",
+      "@type" : "@id"
+    },
+    "endDate" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#endDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "postedToChannel" : {
+      "@id" : "https://auroral.iot.linkeddata.es/def/tourism#postedToChannel",
+      "@type" : "@id"
+    },
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    }
+  }
+}
