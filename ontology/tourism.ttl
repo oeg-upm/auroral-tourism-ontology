@@ -133,6 +133,7 @@ geo:long rdf:type owl:DatatypeProperty ;
 ###  https://auroral.iot.linkeddata.es/def/tourism#amount
 tour:amount rdf:type owl:DatatypeProperty ;
             rdfs:domain tour:Price ;
+            rdfs:range xsd:float ;
             rdfs:label "amount" .
 
 
@@ -265,6 +266,11 @@ tour:Easy rdf:type owl:NamedIndividual ,
                    tour:ActivityDifficulty .
 
 
+###  https://auroral.iot.linkeddata.es/def/tourism#Euros
+tour:Euros rdf:type owl:NamedIndividual ,
+                    tour:Currency .
+
+
 ###  https://auroral.iot.linkeddata.es/def/tourism#Hard
 tour:Hard rdf:type owl:NamedIndividual ,
                    tour:ActivityDifficulty .
@@ -273,6 +279,13 @@ tour:Hard rdf:type owl:NamedIndividual ,
 ###  https://auroral.iot.linkeddata.es/def/tourism#Medium
 tour:Medium rdf:type owl:NamedIndividual ,
                      tour:ActivityDifficulty .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#PriceActivity1
+tour:PriceActivity1 rdf:type owl:NamedIndividual ,
+                             tour:Price ;
+                    tour:inCurrency tour:Euros ;
+                    tour:amount 10 .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#VeryEasy
