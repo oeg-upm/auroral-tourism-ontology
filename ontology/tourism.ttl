@@ -163,6 +163,12 @@ tour:hiddenDescription rdf:type owl:DatatypeProperty ;
                        rdfs:label "hidden description" .
 
 
+###  https://auroral.iot.linkeddata.es/def/tourism#idChannel
+tour:idChannel rdf:type owl:DatatypeProperty ;
+               rdfs:domain tour:Channel ;
+               rdfs:range xsd:string .
+
+
 ###  https://auroral.iot.linkeddata.es/def/tourism#identifier
 tour:identifier rdf:type owl:DatatypeProperty ;
                 rdfs:domain tour:Activity ;
