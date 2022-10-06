@@ -4,10 +4,13 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix evoc: <http://publications.europa.eu/ontology/euvoc#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <https://www.w3.org/ns/org#> .
 @prefix tour: <https://auroral.iot.linkeddata.es/def/tourism#> .
+@prefix geosp: <http://www.opengis.net/ont/geosparql#> .
+@prefix lexvo: <http://lexvo.org/ontology> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://auroral.iot.linkeddata.es/def/tourism#> .
 
@@ -38,13 +41,21 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://purl.org/dc/terms/language
-dcterms:language rdf:type owl:ObjectProperty ;
-                 rdfs:label "language" .
+###  http://lexvo.org/ontology#language
+<http://lexvo.org/ontology#language> rdf:type owl:ObjectProperty ;
+                                     rdfs:range <http://lexvo.org/ontology#Language> ;
+                                     rdfs:label "language" .
+
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geosp:hasGeometry rdf:type owl:ObjectProperty ;
+                  rdfs:range geosp:Geometry ;
+                  rdfs:label "has geometry" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#location
 geo:location rdf:type owl:ObjectProperty ;
+             rdfs:range geo:Point ;
              rdfs:label "location" .
 
 
@@ -70,7 +81,7 @@ tour:hasStartingPrice rdf:type owl:ObjectProperty ;
 ###  https://auroral.iot.linkeddata.es/def/tourism#inCurrency
 tour:inCurrency rdf:type owl:ObjectProperty ;
                 rdfs:domain tour:Price ;
-                rdfs:range tour:Currency ;
+                rdfs:range evoc:Currency ;
                 rdfs:label "in currency" .
 
 
@@ -207,13 +218,24 @@ tour:startDate rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://purl.org/dc/terms/LinguisticSystem
-dcterms:LinguisticSystem rdf:type owl:Class ;
-                         rdfs:label "Linguistic System" .
+###  http://lexvo.org/ontology#Language
+<http://lexvo.org/ontology#Language> rdf:type owl:Class ;
+                                     rdfs:label "Language" .
+
+
+###  http://publications.europa.eu/ontology/euvoc#Currency
+evoc:Currency rdf:type owl:Class ;
+              rdfs:label "Currency" .
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geosp:Geometry rdf:type owl:Class ;
+               rdfs:label "Geometry" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#Point
 geo:Point rdf:type owl:Class ;
+          rdfs:subClassOf geosp:Geometry ;
           rdfs:label "Point" .
 
 
@@ -242,11 +264,6 @@ tour:Channel rdf:type owl:Class ;
              rdfs:label "Channel" .
 
 
-###  https://auroral.iot.linkeddata.es/def/tourism#Currency
-tour:Currency rdf:type owl:Class ;
-              rdfs:label "Currency" .
-
-
 ###  https://auroral.iot.linkeddata.es/def/tourism#Price
 tour:Price rdf:type owl:Class ;
            rdfs:label "Price" .
@@ -273,8 +290,7 @@ tour:Easy rdf:type owl:NamedIndividual ,
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Euros
-tour:Euros rdf:type owl:NamedIndividual ,
-                    tour:Currency .
+tour:Euros rdf:type owl:NamedIndividual .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Hard
