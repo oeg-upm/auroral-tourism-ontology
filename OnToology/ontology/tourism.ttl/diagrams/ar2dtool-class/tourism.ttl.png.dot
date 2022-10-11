@@ -1,0 +1,23 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1501"
+node [shape = rectangle, color="orange"]; "tour:Price" "tour:Currency" "tour:Channel" "tour:Activity" "foaf:Image" ; /*classes style*/
+	"NULL" -> "tour:coverImage" [ label = "owl:onProperty" ];
+	"tour:Activity" -> "xsd:string" [ label = "tour:identifier" ];
+	"tour:Activity" -> "xsd:string" [ label = "tour:shortDescription" ];
+	"tour:Price" -> "tour:Currency" [ label = "tour:inCurrency" ];
+	"tour:Activity" -> "tour:Channel" [ label = "tour:postedToChannel" ];
+	"tour:Activity" -> "xsd:string" [ label = "dcterms:description" ];
+	"tour:Channel" -> "xsd:string" [ label = "tour:channelName" ];
+	"tour:Activity" -> "xsd:string" [ label = "tour:hiddenDescription" ];
+	"tour:Activity" -> "xsd:boolean" [ label = "tour:isBookable" ];
+	"owl:Thing" -> "xsd:date" [ label = "tour:startDate" ];
+	"tour:Activity" -> "foaf:Image" [ label = "tour:coverImage" ];
+	"tour:Activity" -> "xsd:string" [ label = "tour:longDescription" ];
+	"tour:Activity" -> "owl:Thing" [ label = "tour:externalBookingURL" ];
+	"tour:Activity" -> "foaf:Image" [ label = "tour:mapPoint" ];
+	"tour:Price" -> "owl:Thing" [ label = "tour:amount" ];
+	"owl:Thing" -> "xsd:date" [ label = "tour:endDate" ];
+	"tour:Activity" -> "tour:Price" [ label = "tour:hasStartingPrice" ];
+
+}

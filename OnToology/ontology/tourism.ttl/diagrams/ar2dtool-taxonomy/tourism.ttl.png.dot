@@ -1,0 +1,7 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "skos:Concept" "tour:ActivityDifficulty" ; /*classes style*/
+	"tour:ActivityDifficulty" -> "skos:Concept" [ label = "rdfs:subClassOf" ];
+
+}
