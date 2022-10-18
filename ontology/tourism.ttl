@@ -133,6 +133,20 @@ dcterms:title rdf:type owl:DatatypeProperty ;
               rdfs:label "title" .
 
 
+###  http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityLongDescriptionNotSearched
+<http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityLongDescriptionNotSearched> rdf:type owl:DatatypeProperty ;
+                                                                                                rdfs:domain tour:Activity ;
+                                                                                                rdfs:range xsd:string ;
+                                                                                                rdfs:label "activity long description not searched" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityWebURL
+<http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityWebURL> rdf:type owl:DatatypeProperty ;
+                                                                            rdfs:domain tour:Activity ;
+                                                                            rdfs:range xsd:string ;
+                                                                            rdfs:label "activity web url" .
+
+
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
 geo:alt rdf:type owl:DatatypeProperty ;
         rdfs:label "alt" .
@@ -164,13 +178,15 @@ tour:channelName rdf:type owl:DatatypeProperty ;
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#endDate
 tour:endDate rdf:type owl:DatatypeProperty ;
-             rdfs:range xsd:date ;
+             rdfs:domain tour:Activity ;
+             rdfs:range xsd:dateTime ;
              rdfs:label "end date" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL
 tour:externalBookingURL rdf:type owl:DatatypeProperty ;
                         rdfs:domain tour:Activity ;
+                        rdfs:range xsd:string ;
                         rdfs:label "external booking u r l" .
 
 
@@ -217,7 +233,8 @@ tour:shortDescription rdf:type owl:DatatypeProperty ;
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#startDate
 tour:startDate rdf:type owl:DatatypeProperty ;
-               rdfs:range xsd:date ;
+               rdfs:domain tour:Activity ;
+               rdfs:range xsd:dateTime ;
                rdfs:label "start date" .
 
 
@@ -249,7 +266,7 @@ foaf:Image rdf:type owl:Class ;
 tour:Activity rdf:type owl:Class ;
               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                 owl:onProperty tour:coverImage ;
-                                owl:cardinality "1"^^xsd:nonNegativeInteger
+                                owl:someValuesFrom foaf:Image
                               ] ;
               rdfs:label "Activity" .
 
