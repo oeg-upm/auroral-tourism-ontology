@@ -60,18 +60,17 @@ foaf:depiction rdf:type owl:ObjectProperty ;
                rdfs:label "depiction" .
 
 
-###  https://auroral.iot.linkeddata.es/def/tourism#activityDifficulty
-tour:activityDifficulty rdf:type owl:ObjectProperty ;
-                        rdfs:domain tour:Activity ;
-                        rdfs:range tour:Difficulty ;
-                        rdfs:label "activity difficulty" .
-
-
 ###  https://auroral.iot.linkeddata.es/def/tourism#coverImage
 tour:coverImage rdf:type owl:ObjectProperty ;
                 rdfs:domain tour:Activity ;
                 rdfs:range foaf:Image ;
                 rdfs:label "cover image" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty
+tour:hasDifficulty rdf:type owl:ObjectProperty ;
+                   rdfs:range tour:Difficulty ;
+                   rdfs:label "activity difficulty" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasEvent
@@ -83,8 +82,6 @@ tour:hasEvent rdf:type owl:ObjectProperty ;
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon
 tour:hasGeoPolygon rdf:type owl:ObjectProperty ;
-                   rdfs:domain tour:Activity ,
-                               tour:Tour ;
                    rdfs:range sf:Polygon ;
                    rdfs:comment "has Geo Polygon" ;
                    rdfs:label "has geo polygon" .
