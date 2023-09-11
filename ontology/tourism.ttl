@@ -73,6 +73,12 @@ tour:hasDifficulty rdf:type owl:ObjectProperty ;
                    rdfs:label "activity difficulty" .
 
 
+###  https://auroral.iot.linkeddata.es/def/tourism#hasEmotion
+tour:hasEmotion rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://auroral.iot.linkeddata.es/def/core#User> ;
+                rdfs:range tour:Emotion .
+
+
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasEvent
 tour:hasEvent rdf:type owl:ObjectProperty ;
               rdfs:domain tour:Activity ;
@@ -106,6 +112,12 @@ tour:inCurrency rdf:type owl:ObjectProperty ;
                 rdfs:domain tour:Price ;
                 rdfs:range tour:Currency ;
                 rdfs:label "in currency" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#isAbout
+tour:isAbout rdf:type owl:ObjectProperty ;
+             rdfs:domain tour:Emotion ;
+             rdfs:range tour:Activity .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#mapPoint
@@ -306,6 +318,11 @@ foaf:Image rdf:type owl:Class ;
            rdfs:label "Image" .
 
 
+###  https://auroral.iot.linkeddata.es/def/core#User
+<https://auroral.iot.linkeddata.es/def/core#User> rdf:type owl:Class ;
+                                                  rdfs:label "User" .
+
+
 ###  https://auroral.iot.linkeddata.es/def/tourism#Activity
 tour:Activity rdf:type owl:Class ;
               rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -329,6 +346,12 @@ tour:Currency rdf:type owl:Class ;
 tour:Difficulty rdf:type owl:Class ;
                 rdfs:subClassOf skos:Concept ;
                 rdfs:label "Difficulty" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Emotion
+tour:Emotion rdf:type owl:Class ;
+             rdfs:comment "Emotion of users about a tourism activity that could be : agree, disagree, and neutral" ;
+             rdfs:label "Emotion" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Event
@@ -1791,6 +1814,16 @@ cur:ZWR rdf:type owl:NamedIndividual ,
                                                  dcterms:title "The AURORAL Tourism Ontology" .
 
 
+###  https://auroral.iot.linkeddata.es/def/tourism#Agree
+tour:Agree rdf:type owl:NamedIndividual ,
+                    tour:Emotion .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Disagree
+tour:Disagree rdf:type owl:NamedIndividual ,
+                       tour:Emotion .
+
+
 ###  https://auroral.iot.linkeddata.es/def/tourism#Easy
 tour:Easy rdf:type owl:NamedIndividual ,
                    tour:Difficulty .
@@ -1808,6 +1841,11 @@ tour:Hard rdf:type owl:NamedIndividual ,
 ###  https://auroral.iot.linkeddata.es/def/tourism#Medium
 tour:Medium rdf:type owl:NamedIndividual ,
                      tour:Difficulty .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#Neutral
+tour:Neutral rdf:type owl:NamedIndividual ,
+                      tour:Emotion .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#PriceActivity1
