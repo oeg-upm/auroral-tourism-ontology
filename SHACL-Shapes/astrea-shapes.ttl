@@ -1,0 +1,299 @@
+@prefix :      <https://auroral.iot.linkeddata.es/def/tourism#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix afn:   <http://jena.apache.org/ARQ/function#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://astrea.linkeddata.es/shapes#7a49f5dd0954737e0f7e916a39e41c59>
+        a               sh:NodeShape ;
+        rdfs:label      "Image" ;
+        sh:name         "Image" ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://xmlns.com/foaf/0.1/Image> .
+
+<https://astrea.linkeddata.es/shapes#59120348cdfd2515c8113138c7285975>
+        a            sh:PropertyShape ;
+        rdfs:label   "has starting price" ;
+        sh:class     :Price ;
+        sh:name      "has starting price" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :hasStartingPrice .
+
+<https://astrea.linkeddata.es/shapes#b8840ae319dd17775a4c3ff2c43caeca>
+        a            sh:PropertyShape ;
+        sh:nodeKind  sh:Literal .
+
+<https://astrea.linkeddata.es/shapes#b20e0a6ee187d45bdb6030cc2fee19ab>
+        a            sh:PropertyShape ;
+        rdfs:label   "hidden description" ;
+        sh:datatype  xsd:string ;
+        sh:name      "hidden description" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :hiddenDescription ;
+        sh:pattern   ".*" .
+
+<https://astrea.linkeddata.es/shapes#2327c4091bcd851feee4b03c4f87f084>
+        a               sh:NodeShape ;
+        rdfs:label      "Concept" ;
+        sh:name         "Concept" ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <https://www.w3.org/ns/org#Concept> .
+
+<https://astrea.linkeddata.es/shapes#ffa627c90b2f93431bad38fc95750b9e>
+        a            sh:PropertyShape ;
+        rdfs:label   "location" ;
+        sh:name      "location" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://www.w3.org/2003/01/geo/wgs84_pos#location> .
+
+<https://astrea.linkeddata.es/shapes#3604ff5cd1f2b727bc77c99c5ce2280c>
+        a               sh:NodeShape ;
+        rdfs:label      "Linguistic System" ;
+        sh:name         "Linguistic System" ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://purl.org/dc/terms/LinguisticSystem> .
+
+<https://astrea.linkeddata.es/shapes#352e6da08c8cb71a117acef99e68a963>
+        a            sh:PropertyShape ;
+        rdfs:label   "last modified" ;
+        sh:name      "last modified" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://purl.org/dc/terms/lastModified> .
+
+<https://astrea.linkeddata.es/shapes#172382a059e61f60b739a6e8d904fff3>
+        a            sh:PropertyShape ;
+        rdfs:label   "lat" ;
+        sh:name      "lat" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://www.w3.org/2003/01/geo/wgs84_pos#lat> .
+
+<https://astrea.linkeddata.es/shapes#4dcaac802e5eafdde9f851139415fc10>
+        a            sh:PropertyShape ;
+        rdfs:label   "in currency" ;
+        sh:class     :Currency ;
+        sh:name      "in currency" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :inCurrency .
+
+<https://astrea.linkeddata.es/shapes#f7f8518421ff9227aa1ca2144003f362>
+        a            sh:PropertyShape ;
+        rdfs:label   "is bookable" ;
+        sh:datatype  xsd:boolean ;
+        sh:name      "is bookable" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :isBookable ;
+        sh:pattern   "true|false|0|1" .
+
+<http://astrea.linkeddata.es/report>
+        a       <https://w3id.org/def/astrea#ShapeReport> ;
+        <https://w3id.org/def/astrea#contains>
+                <https://astrea.linkeddata.es/shapes#f7f8518421ff9227aa1ca2144003f362> , <https://astrea.linkeddata.es/shapes#8d1de345f831c02f80a1c9ce34e89b30> , <https://astrea.linkeddata.es/shapes#79b9c1d8738193595ede3e8632152441> , <https://astrea.linkeddata.es/shapes#b4b94e3a0c1555c15a959bcb4d455d43> , <https://astrea.linkeddata.es/shapes#b20e0a6ee187d45bdb6030cc2fee19ab> , <https://astrea.linkeddata.es/shapes#172382a059e61f60b739a6e8d904fff3> , <https://astrea.linkeddata.es/shapes#b8840ae319dd17775a4c3ff2c43caeca> , <https://astrea.linkeddata.es/shapes#64b64df9a0cfe65b7ade08ac516020cf> , <https://astrea.linkeddata.es/shapes#352e6da08c8cb71a117acef99e68a963> , <https://astrea.linkeddata.es/shapes#7a49f5dd0954737e0f7e916a39e41c59> , <https://astrea.linkeddata.es/shapes#d105e7f7ceff3bf16cdbfa183899eb58> , <https://astrea.linkeddata.es/shapes#9611bd29c0e759859ac744fba4a85602> , <https://astrea.linkeddata.es/shapes#d4305c8cadbb9aba0ebff7fff0b50617> , <https://astrea.linkeddata.es/shapes#4dcaac802e5eafdde9f851139415fc10> , <https://astrea.linkeddata.es/shapes#f8a474153a6b7968bf3911fe8e2ed389> , <https://astrea.linkeddata.es/shapes#4496ce8f544702a6870f7a7ccf5f3a38> , <https://astrea.linkeddata.es/shapes#3ef793712378e097aac823894a277e63> , <https://astrea.linkeddata.es/shapes#a24e377aa3f1d3cf4085c8513f29cb86> , <https://astrea.linkeddata.es/shapes#ffa627c90b2f93431bad38fc95750b9e> , <https://astrea.linkeddata.es/shapes#ba7d8f17b67f40f59487beaa75e32d6d> , <https://astrea.linkeddata.es/shapes#925d757186f356264408d8619939dd6a> , <https://astrea.linkeddata.es/shapes#5f0d01d6de3010e3e5f681e22f8f2781> , <https://astrea.linkeddata.es/shapes#3604ff5cd1f2b727bc77c99c5ce2280c> , <https://astrea.linkeddata.es/shapes#a65a90bf1e1902db48c6aa296260b179> , <https://astrea.linkeddata.es/shapes#e2a95adc29793223657a623996b795d1> , <https://astrea.linkeddata.es/shapes#e7990c6dd6a3dca6de078b32328bc4ef> , <https://astrea.linkeddata.es/shapes#009958f89751b5f954d179b11d4780db> , <https://astrea.linkeddata.es/shapes#d34eae6773593fa726908c2355698df9> , <https://astrea.linkeddata.es/shapes#59120348cdfd2515c8113138c7285975> , <https://astrea.linkeddata.es/shapes#a942b1e5990ade90b54441d30343f4cc> , <https://astrea.linkeddata.es/shapes#3f2ae919e9c05cd1b735ab4f438ab19b> , <https://astrea.linkeddata.es/shapes#07fe8d090dee52aa25cacf9ba01c537d> , <https://astrea.linkeddata.es/shapes#bdb74e78a652c7e80ebb50970129f601> , <https://astrea.linkeddata.es/shapes#2327c4091bcd851feee4b03c4f87f084> , <https://astrea.linkeddata.es/shapes#feda1d30c2a4aaf5aebe979e5a0810da> , <https://astrea.linkeddata.es/shapes#0e867d8aa45064126167c2551436cf01> ;
+        <https://w3id.org/def/astrea#generatedShapesFrom>
+                <https://astrea.linkeddata.es/report/1643426771> .
+
+<https://astrea.linkeddata.es/shapes#e2a95adc29793223657a623996b795d1>
+        a            sh:PropertyShape ;
+        rdfs:label   "rights" ;
+        sh:name      "rights" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://purl.org/dc/terms/rights> .
+
+<https://astrea.linkeddata.es/shapes#3ef793712378e097aac823894a277e63>
+        a               sh:NodeShape ;
+        rdfs:label      "Point" ;
+        sh:name         "Point" ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+
+<https://astrea.linkeddata.es/shapes#a65a90bf1e1902db48c6aa296260b179>
+        a               sh:NodeShape ;
+        rdfs:label      "Channel" ;
+        sh:name         "Channel" ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#ba7d8f17b67f40f59487beaa75e32d6d> ;
+        sh:targetClass  :Channel .
+
+<https://astrea.linkeddata.es/shapes#4496ce8f544702a6870f7a7ccf5f3a38>
+        a            sh:PropertyShape ;
+        rdfs:label   "alt" ;
+        sh:name      "alt" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://www.w3.org/2003/01/geo/wgs84_pos#alt> .
+
+<https://astrea.linkeddata.es/shapes#8d1de345f831c02f80a1c9ce34e89b30>
+        a            sh:PropertyShape ;
+        sh:maxCount  "1"^^xsd:nonNegativeInteger ;
+        sh:minCount  "1"^^xsd:nonNegativeInteger ;
+        sh:nodeKind  sh:IRIOrLiteral ;
+        sh:path      :coverImage .
+
+<https://astrea.linkeddata.es/shapes#a24e377aa3f1d3cf4085c8513f29cb86>
+        a               sh:NodeShape ;
+        rdfs:label      "Activity" ;
+        sh:name         "Activity" ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#b20e0a6ee187d45bdb6030cc2fee19ab> , <https://astrea.linkeddata.es/shapes#bdb74e78a652c7e80ebb50970129f601> , <https://astrea.linkeddata.es/shapes#f7f8518421ff9227aa1ca2144003f362> , <https://astrea.linkeddata.es/shapes#5f0d01d6de3010e3e5f681e22f8f2781> , <https://astrea.linkeddata.es/shapes#64b64df9a0cfe65b7ade08ac516020cf> , <https://astrea.linkeddata.es/shapes#feda1d30c2a4aaf5aebe979e5a0810da> , <https://astrea.linkeddata.es/shapes#8d1de345f831c02f80a1c9ce34e89b30> , <https://astrea.linkeddata.es/shapes#79b9c1d8738193595ede3e8632152441> , <https://astrea.linkeddata.es/shapes#a942b1e5990ade90b54441d30343f4cc> , <https://astrea.linkeddata.es/shapes#59120348cdfd2515c8113138c7285975> , <https://astrea.linkeddata.es/shapes#009958f89751b5f954d179b11d4780db> ;
+        sh:targetClass  :Activity .
+
+<https://astrea.linkeddata.es/shapes#d105e7f7ceff3bf16cdbfa183899eb58>
+        a            sh:PropertyShape ;
+        rdfs:label   "language" ;
+        sh:name      "language" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://purl.org/dc/terms/language> .
+
+<https://astrea.linkeddata.es/shapes#79b9c1d8738193595ede3e8632152441>
+        a            sh:PropertyShape ;
+        rdfs:label   "cover image" ;
+        sh:class     <http://xmlns.com/foaf/0.1/Image> ;
+        sh:name      "cover image" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :coverImage .
+
+<https://astrea.linkeddata.es/shapes#d34eae6773593fa726908c2355698df9>
+        a               sh:NodeShape ;
+        rdfs:label      "Activity Difficulty" ;
+        sh:name         "Activity Difficulty" ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  :ActivityDifficulty .
+
+<https://astrea.linkeddata.es/shapes#feda1d30c2a4aaf5aebe979e5a0810da>
+        a            sh:PropertyShape ;
+        rdfs:label   "description" ;
+        sh:datatype  xsd:string ;
+        sh:name      "description" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://purl.org/dc/terms/description> ;
+        sh:pattern   ".*" .
+
+<https://astrea.linkeddata.es/shapes#64b64df9a0cfe65b7ade08ac516020cf>
+        a            sh:PropertyShape ;
+        rdfs:label   "identifier" ;
+        sh:datatype  xsd:string ;
+        sh:name      "identifier" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :identifier ;
+        sh:pattern   ".*" .
+
+<https://astrea.linkeddata.es/shapes#3f2ae919e9c05cd1b735ab4f438ab19b>
+        a            sh:PropertyShape ;
+        rdfs:label   "title" ;
+        sh:name      "title" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://purl.org/dc/terms/title> .
+
+<https://astrea.linkeddata.es/shapes#009958f89751b5f954d179b11d4780db>
+        a            sh:PropertyShape ;
+        rdfs:label   "long description" ;
+        sh:datatype  xsd:string ;
+        sh:name      "long description" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :longDescription ;
+        sh:pattern   ".*" .
+
+<https://astrea.linkeddata.es/report/1643426771>
+        a       <https://w3id.org/def/astrea#ReportEntry> ;
+        <https://w3id.org/def/astrea#message>
+                "Shapes generated with no errors" ;
+        <https://w3id.org/def/astrea#source>
+                "https://auroral.iot.linkeddata.es/def/tour/ontology.ttl" ;
+        <https://w3id.org/def/astrea#statusCode>
+                "200"^^xsd:int .
+
+<https://astrea.linkeddata.es/shapes#e7990c6dd6a3dca6de078b32328bc4ef>
+        a            sh:PropertyShape ;
+        rdfs:label   "long" ;
+        sh:name      "long" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      <http://www.w3.org/2003/01/geo/wgs84_pos#long> .
+
+<https://astrea.linkeddata.es/shapes#f8a474153a6b7968bf3911fe8e2ed389>
+        a            sh:PropertyShape ;
+        rdfs:label   "end date" ;
+        sh:datatype  xsd:date ;
+        sh:name      "end date" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :endDate ;
+        sh:pattern   "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?" .
+
+<https://astrea.linkeddata.es/shapes#07fe8d090dee52aa25cacf9ba01c537d>
+        a            sh:PropertyShape ;
+        rdfs:label   "depiction" ;
+        sh:name      "depiction" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      <http://xmlns.com/foaf/0.1/depiction> .
+
+<https://astrea.linkeddata.es/shapes#0e867d8aa45064126167c2551436cf01>
+        a            sh:PropertyShape ;
+        rdfs:label   "start date" ;
+        sh:datatype  xsd:date ;
+        sh:name      "start date" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :startDate ;
+        sh:pattern   "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?" .
+
+<https://astrea.linkeddata.es/shapes#5f0d01d6de3010e3e5f681e22f8f2781>
+        a            sh:PropertyShape ;
+        rdfs:label   "short description" ;
+        sh:datatype  xsd:string ;
+        sh:name      "short description" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :shortDescription ;
+        sh:pattern   ".*" .
+
+<https://astrea.linkeddata.es/shapes#9611bd29c0e759859ac744fba4a85602>
+        a            sh:PropertyShape ;
+        rdfs:label   "external booking u r l" ;
+        sh:name      "external booking u r l" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :externalBookingURL .
+
+<https://astrea.linkeddata.es/shapes#a942b1e5990ade90b54441d30343f4cc>
+        a            sh:PropertyShape ;
+        rdfs:label   "posted to channel" ;
+        sh:class     :Channel ;
+        sh:name      "posted to channel" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :postedToChannel .
+
+<https://astrea.linkeddata.es/shapes#d4305c8cadbb9aba0ebff7fff0b50617>
+        a               sh:NodeShape ;
+        rdfs:label      "Currency" ;
+        sh:name         "Currency" ;
+        sh:nodeKind     sh:IRI ;
+        sh:targetClass  :Currency .
+
+<https://astrea.linkeddata.es/shapes#925d757186f356264408d8619939dd6a>
+        a            sh:PropertyShape ;
+        rdfs:label   "amount" ;
+        sh:name      "amount" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :amount .
+
+<https://astrea.linkeddata.es/shapes#bdb74e78a652c7e80ebb50970129f601>
+        a            sh:PropertyShape ;
+        rdfs:label   "map point" ;
+        sh:class     :ActivityDifficulty , <http://xmlns.com/foaf/0.1/Image> ;
+        sh:name      "map point" ;
+        sh:nodeKind  sh:BlankNodeOrIRI ;
+        sh:path      :mapPoint .
+
+<https://astrea.linkeddata.es/shapes#b4b94e3a0c1555c15a959bcb4d455d43>
+        a               sh:NodeShape ;
+        rdfs:label      "Price" ;
+        sh:name         "Price" ;
+        sh:nodeKind     sh:IRI ;
+        sh:property     <https://astrea.linkeddata.es/shapes#4dcaac802e5eafdde9f851139415fc10> ;
+        sh:targetClass  :Price .
+
+<https://astrea.linkeddata.es/shapes#ba7d8f17b67f40f59487beaa75e32d6d>
+        a            sh:PropertyShape ;
+        rdfs:label   "channel name" ;
+        sh:datatype  xsd:string ;
+        sh:name      "channel name" ;
+        sh:nodeKind  sh:Literal ;
+        sh:path      :channelName ;
+        sh:pattern   ".*" .
