@@ -135,11 +135,11 @@ tour:postedToChannel rdf:type owl:ObjectProperty ;
                      rdfs:label "posted to channel" .
 
 
-###  https://auroral.iot.linkeddata.es/def/tourism#tourActivity
-tour:tourActivity rdf:type owl:ObjectProperty ;
-                  rdfs:domain tour:Tour ;
-                  rdfs:range tour:Difficulty ;
-                  rdfs:label "tour activity" .
+###  https://auroral.iot.linkeddata.es/def/tourism#tourDifficulty
+tour:tourDifficulty rdf:type owl:ObjectProperty ;
+                    rdfs:domain tour:Tour ;
+                    rdfs:range tour:Difficulty ;
+                    rdfs:label "tour activity" .
 
 
 #################################################################
@@ -326,8 +326,48 @@ foaf:Image rdf:type owl:Class ;
 ###  https://auroral.iot.linkeddata.es/def/tourism#Activity
 tour:Activity rdf:type owl:Class ;
               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty <http://lexvo.org/ontology#language> ;
+                                owl:someValuesFrom <http://lexvo.org/ontology#Language>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty geo:location ;
+                                owl:someValuesFrom geo:Point
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty foaf:depiction ;
+                                owl:someValuesFrom foaf:Image
+                              ] ,
+                              [ rdf:type owl:Restriction ;
                                 owl:onProperty tour:coverImage ;
                                 owl:someValuesFrom foaf:Image
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:hasDifficulty ;
+                                owl:someValuesFrom tour:Difficulty
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:hasEmotion ;
+                                owl:someValuesFrom tour:Emotion
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:hasEvent ;
+                                owl:someValuesFrom tour:Event
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:hasGeoPolygon ;
+                                owl:someValuesFrom sf:Polygon
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:hasStartingPrice ;
+                                owl:someValuesFrom tour:Price
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:hasTour ;
+                                owl:someValuesFrom tour:Tour
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty tour:postedToChannel ;
+                                owl:someValuesFrom tour:Channel
                               ] ;
               rdfs:label "Activity" .
 
@@ -361,11 +401,19 @@ tour:Event rdf:type owl:Class ;
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Price
 tour:Price rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty tour:inCurrency ;
+                             owl:someValuesFrom tour:Currency
+                           ] ;
            rdfs:label "Price" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Tour
 tour:Tour rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty tour:tourDifficulty ;
+                            owl:someValuesFrom tour:Currency
+                          ] ;
           rdfs:label "Tour" .
 
 
