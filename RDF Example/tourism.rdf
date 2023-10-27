@@ -1,55 +1,51 @@
-@prefix ns1: < https://auroral.iot.linkeddata.es/def/tourism# > .
-@prefix ns2: < http://www.w3.org/2003/01/geo/wgs84_pos# > .
-@prefix ns3: < http://xmlns.com/foaf/0.1/ > .
-@prefix  ns4: < http://publications.europa.eu/resource/authority/currency/ > .
-@prefix  ns5: < http://lexvo.org/ontology > .
-@prefix  ns6: < http://www.opengis.net/ont/sf# > .
-@prefix  ns7: < http://purl.org/dc/terms/ > .
-@prefix  ns8: < http://lexvo.org/ontology > .
-@prefix xsd: < http://www.w3.org/2001/XMLSchema# > .
-
+@prefix ns1: <https://auroral.iot.linkeddata.es/def/tourism#> .
+@prefix ns2: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix  ns4: <http://publications.europa.eu/resource/authority/currency/> .
+@prefix  ns5: <http://lexvo.org/ontology> .
+@prefix  ns6: <http://www.opengis.net/ont/sf#> .
+@prefix  ns7: <http://purl.org/dc/terms/> .
+@prefix  ns8: <http://lexvo.org/ontology> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 ns1:Activity1 a ns1:Activity; 
               ns1:identifier "e915744b-a34f-4dfc-ac16-6ed9db92f5b0"^^xsd:string ;
               ns1:hiddenDescription "a sample description that is hidden"^^xsd:string ; 
               ns1:longDescription "a long description"^^xsd:string;
               ns1:shortDescription "a short description"^^xsd:string;
-              ns1:iBookable true; 
-              ns1:externalBookingURL ; 
-              ns1:activityLongDescriptionNotSearched ; 
-              ns1:activityWebURL ; 
-              ns1:mapPointCategory ; 
-              ns1:startDate "13/09/2022" ^^xsd:dateTime;  
+              ns1:isBookable "true"^^xsd:boolean; 
+              ns1:externalBookingURL "http://tourism.com"^^xsd:anyURI; 
+              ns1:activityLongDescriptionNotSearched "Long Description"^^xsd:string; 
+              ns1:activityWebURL "https://activityweb.com"^^xsd:anyURI ; 
+              ns1:mapPointCategory "category"^^xsd:string ; 
+              ns1:startDate "13/09/2022"^^xsd:dateTime;  
               ns1:endDate "14/09/2022"^^xsd:dateTime; 
               ns7:title "A sample activity tour"^^xsd:string ;
               ns7:description "a sample description of the activity"^^xsd:string ;
               ns1:location ns1:Location1; 
-              ns1:postedToChannel ns1:Channel1 ; 
+              ns1:postedToChannel ns1:Channel1; 
               ns1:hasStartingPrice ns1:Price1; 
-              ns1:hasTour Tour1; 
-              ns1:hasEvent Event1; 
+              ns1:hasTour ns1:Tour1; 
+              ns1:hasEvent ns1:Event1; 
               ns1:hasDifficulty ns1:Easy; 
-              ns1:coverImage Image1; 
-              ns8:language ns8:english;
+              ns1:coverImage ns1:Image1; 
+              ns8:language ns8:english.
 
 ns1:Location1 a ns2:Point; 
               ns2:lat 40.405807; 
               ns2:long -3.717628; 
-              ns2:alt 1000; 
+              ns2:alt 1000.
 
 ns1:Channel1 a ns1:Channel; 
              ns1:idChannel "123"^^xsd:string; 
-             ns1:name "twitter"^^xsd:string
+             ns1:name "twitter"^^xsd:string.
 
-ns1:Tour1 a ns1:Tour; 
-ns1:Event1 a ns1:Event;
+ns1:Tour1 a ns1:Tour.
+ns1:Event1 a ns1:Event.
 
 ns1:Image1 a ns3:Image; 
            ns3:depicts "https://www.shutterstock.com/search/sampling"^^xsd:string;
-           ns3:thumbnail "https://www.shutterstock.com/search/sampling"^^xsd:string;
+           ns3:thumbnail "https://www.shutterstock.com/search/sampling"^^xsd:string.
 
 ns1:Price1 a ns1:Price; 
            ns1:amount 33; 
-           ns1inCurrency ns4:EUR; 
-
- 
-              
+           ns1:inCurrency ns4:EUR.
