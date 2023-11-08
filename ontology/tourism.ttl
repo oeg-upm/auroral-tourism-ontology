@@ -21,6 +21,7 @@
                                                                   "Juan Cano" ,
                                                                   "María Poveda-Villalón" ,
                                                                   "Raúl Garcia-Castro" ;
+                                                  dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
                                                   owl:versionInfo "0.0.1" .
 
 #################################################################
@@ -29,6 +30,10 @@
 
 ###  http://purl.org/dc/terms/creator
 dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -123,8 +128,7 @@ tour:isAbout rdf:type owl:ObjectProperty ;
 ###  https://auroral.iot.linkeddata.es/def/tourism#mapPoint
 tour:mapPoint rdf:type owl:ObjectProperty ;
               rdfs:domain tour:Activity ;
-              rdfs:range foaf:Image ,
-                         tour:Difficulty ;
+              rdfs:range foaf:Image ;
               rdfs:label "map point" .
 
 
