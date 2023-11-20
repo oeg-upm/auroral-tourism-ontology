@@ -10,8 +10,8 @@ node [shape = rectangle, color="orange"]; "tour:Price" "tour:Currency" "tour:Cha
 	"tour:Activity" -> "xsd:string" [ label = "dcterms:description" ];
 	"tour:Channel" -> "xsd:string" [ label = "tour:channelName" ];
 	"tour:Activity" -> "xsd:string" [ label = "tour:hiddenDescription" ];
-	"owl:Thing" -> "xsd:date" [ label = "tour:startDate" ];
 	"tour:Activity" -> "xsd:boolean" [ label = "tour:isBookable" ];
+	"owl:Thing" -> "xsd:date" [ label = "tour:startDate" ];
 	"tour:Activity" -> "foaf:Image" [ label = "tour:coverImage" ];
 	"tour:Activity" -> "xsd:string" [ label = "tour:longDescription" ];
 	"tour:Activity" -> "owl:Thing" [ label = "tour:externalBookingURL" ];
