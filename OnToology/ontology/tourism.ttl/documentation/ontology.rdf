@@ -1,17 +1,29 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://auroral.iot.linkeddata.es/def/tourism#"
      xml:base="https://auroral.iot.linkeddata.es/def/tourism"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:sf="http://www.opengis.net/ont/sf#"
+     xmlns:cur="http://publications.europa.eu/resource/authority/currency/"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:terms="http://purl.org/dc/terms/">
+     xmlns:skos="https://www.w3.org/ns/org#"
+     xmlns:tour="https://auroral.iot.linkeddata.es/def/tourism#"
+     xmlns:geosp="http://www.opengis.net/ont/geosparql#"
+     xmlns:lexvo="http://lexvo.org/ontology"
+     xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://auroral.iot.linkeddata.es/def/tourism#">
-        <terms:creator>Andrea Cimmino</terms:creator>
-        <terms:creator>Juan Cano</terms:creator>
-        <terms:creator>María Poveda-Villalón</terms:creator>
-        <terms:creator>Raúl Garcia-Castro</terms:creator>
+        <dc:creator>Ahlem Rhayem</dc:creator>
+        <dc:creator>Andrea Cimmino</dc:creator>
+        <dc:creator>Juan Cano</dc:creator>
+        <dc:creator>María Poveda-Villalón</dc:creator>
+        <dc:creator>Raúl Garcia-Castro</dc:creator>
+        <dc:description>This ontology aims at modelling the tourism data for the AURORAL project.</dc:description>
+        <dcterms:license rdf:resource="http://purl.org/NET/rdflicense/cc-by4.0"/>
         <owl:versionInfo>0.0.1</owl:versionInfo>
     </owl:Ontology>
     
@@ -25,14 +37,30 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
 
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
     
 
 
     <!-- http://purl.org/dc/terms/creator -->
 
-
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
     
 
 
@@ -44,12 +72,10 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- http://www.w3.org/2001/XMLSchema#date -->
-
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
@@ -63,14 +89,13 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
-    <!-- http://purl.org/dc/terms/language -->
+    <!-- http://lexvo.org/ontology#language -->
 
-
-    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/language">
+    <owl:ObjectProperty rdf:about="http://lexvo.org/ontology#language">
+        <rdfs:range rdf:resource="http://lexvo.org/ontology#Language"/>
         <rdfs:label>language</rdfs:label>
     </owl:ObjectProperty>
     
@@ -78,15 +103,14 @@
 
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
 
-
     <owl:ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
         <rdfs:label>location</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- http://xmlns.com/foaf/0.1/depiction -->
-
 
     <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/depiction">
         <rdfs:label>depiction</rdfs:label>
@@ -96,7 +120,6 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#coverImage -->
 
-
     <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#coverImage">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
         <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
@@ -105,8 +128,45 @@
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice -->
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty -->
 
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty">
+        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
+        <rdfs:label>activity difficulty</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasEmotion -->
+
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hasEmotion">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/core#User"/>
+        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Emotion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hasEvent">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Event"/>
+        <rdfs:label>has event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon -->
+
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon">
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/sf#Polygon"/>
+        <rdfs:comment>has Geo Polygon</rdfs:comment>
+        <rdfs:label>has geo polygon</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice -->
 
     <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
@@ -116,8 +176,17 @@
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#inCurrency -->
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#hasTour -->
 
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hasTour">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Tour"/>
+        <rdfs:label>has tour</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#inCurrency -->
 
     <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#inCurrency">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Price"/>
@@ -127,13 +196,20 @@
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#mapPoint -->
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#isAbout -->
 
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#isAbout">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Emotion"/>
+        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#mapPoint -->
 
     <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#mapPoint">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
         <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
-        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"/>
         <rdfs:label>map point</rdfs:label>
     </owl:ObjectProperty>
     
@@ -141,11 +217,20 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#postedToChannel -->
 
-
     <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#postedToChannel">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
         <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Channel"/>
         <rdfs:label>posted to channel</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#tourDifficulty -->
+
+    <owl:ObjectProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#tourDifficulty">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Tour"/>
+        <rdfs:range rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
+        <rdfs:label>tour activity</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -158,12 +243,10 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- http://purl.org/dc/terms/description -->
-
 
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
@@ -175,7 +258,6 @@
 
     <!-- http://purl.org/dc/terms/lastModified -->
 
-
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/lastModified">
         <rdfs:label>last modified</rdfs:label>
     </owl:DatatypeProperty>
@@ -183,7 +265,6 @@
 
 
     <!-- http://purl.org/dc/terms/rights -->
-
 
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/rights">
         <rdfs:label>rights</rdfs:label>
@@ -193,15 +274,33 @@
 
     <!-- http://purl.org/dc/terms/title -->
 
-
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/title">
         <rdfs:label>title</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
+    <!-- http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityLongDescriptionNotSearched -->
 
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityLongDescriptionNotSearched">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>activity long description not searched</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityWebURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityWebURL">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:label>activity web url</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#alt">
         <rdfs:label>alt</rdfs:label>
@@ -211,7 +310,6 @@
 
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
 
-
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
         <rdfs:label>lat</rdfs:label>
     </owl:DatatypeProperty>
@@ -219,7 +317,6 @@
 
 
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
-
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
         <rdfs:label>long</rdfs:label>
@@ -229,16 +326,15 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#amount -->
 
-
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#amount">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Price"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
         <rdfs:label>amount</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#channelName -->
-
 
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#channelName">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Channel"/>
@@ -248,11 +344,21 @@
     
 
 
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#end -->
+
+    <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#end">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>end</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://auroral.iot.linkeddata.es/def/tourism#endDate -->
 
-
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#endDate">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:label>end date</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -260,16 +366,15 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL -->
 
-
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:label>external booking u r l</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription -->
-
 
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
@@ -279,8 +384,16 @@
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#identifier -->
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#idChannel -->
 
+    <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#idChannel">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Channel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#identifier -->
 
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#identifier">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
@@ -292,7 +405,6 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#isBookable -->
 
-
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#isBookable">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -303,7 +415,6 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#longDescription -->
 
-
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#longDescription">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -312,8 +423,17 @@
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#shortDescription -->
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory -->
 
+    <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>map point category</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#shortDescription -->
 
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#shortDescription">
         <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
@@ -323,11 +443,21 @@
     
 
 
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#start -->
+
+    <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#start">
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>start</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://auroral.iot.linkeddata.es/def/tourism#startDate -->
 
-
     <owl:DatatypeProperty rdf:about="https://auroral.iot.linkeddata.es/def/tourism#startDate">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:domain rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:label>start date</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -341,21 +471,26 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
-    <!-- http://purl.org/dc/terms/LinguisticSystem -->
+    <!-- http://lexvo.org/ontology#Language -->
+
+    <owl:Class rdf:about="http://lexvo.org/ontology#Language">
+        <rdfs:label>Language</rdfs:label>
+    </owl:Class>
+    
 
 
-    <owl:Class rdf:about="http://purl.org/dc/terms/LinguisticSystem">
-        <rdfs:label>Linguistic System</rdfs:label>
+    <!-- http://www.opengis.net/ont/sf#Polygon -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/sf#Polygon">
+        <rdfs:label>Polygon</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
-
 
     <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#Point">
         <rdfs:label>Point</rdfs:label>
@@ -365,21 +500,87 @@
 
     <!-- http://xmlns.com/foaf/0.1/Image -->
 
-
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Image">
         <rdfs:label>Image</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#Activity -->
+    <!-- https://auroral.iot.linkeddata.es/def/core#User -->
 
+    <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/core#User">
+        <rdfs:label>User</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Activity -->
 
     <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Activity">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lexvo.org/ontology#language"/>
+                <owl:someValuesFrom rdf:resource="http://lexvo.org/ontology#Language"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/depiction"/>
+                <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#coverImage"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#hasEmotion"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Emotion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#hasEvent"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/sf#Polygon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Price"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#hasTour"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Tour"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#postedToChannel"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Channel"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label>Activity</rdfs:label>
@@ -387,18 +588,7 @@
     
 
 
-    <!-- https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty -->
-
-
-    <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">
-        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/org#Concept"/>
-        <rdfs:label>Activity Difficulty</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://auroral.iot.linkeddata.es/def/tourism#Channel -->
-
 
     <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Channel">
         <rdfs:label>Channel</rdfs:label>
@@ -408,24 +598,67 @@
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#Currency -->
 
-
     <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Currency">
         <rdfs:label>Currency</rdfs:label>
     </owl:Class>
     
 
 
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Difficulty -->
+
+    <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/org#Concept"/>
+        <rdfs:label>Difficulty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Emotion -->
+
+    <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Emotion">
+        <rdfs:comment>Emotion of users about a tourism activity that could be : agree, disagree, and neutral</rdfs:comment>
+        <rdfs:label>Emotion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Event -->
+
+    <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Event">
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://auroral.iot.linkeddata.es/def/tourism#Price -->
 
-
     <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Price">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#inCurrency"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label>Price</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://www.w3.org/ns/org#Concept -->
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Tour -->
 
+    <owl:Class rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Tour">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#tourDifficulty"/>
+                <owl:someValuesFrom rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Tour</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.w3.org/ns/org#Concept -->
 
     <owl:Class rdf:about="https://www.w3.org/ns/org#Concept">
         <rdfs:label>Concept</rdfs:label>
@@ -441,66 +674,2386 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
 
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ADF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ADF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ADP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ADP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AED -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AED">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AFA -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AFA">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AFN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AFN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ALK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ALK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ALL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ALL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AMD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AMD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ANG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ANG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AOA -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AOA">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AON -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AON">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AOR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AOR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ARA -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ARA">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ARL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ARL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ARM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ARM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ARP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ARP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ARS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ARS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ATS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ATS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AUD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AUD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AWG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AWG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AZM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AZM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/AZN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/AZN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BAM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BAM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BBD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BBD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BDT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BDT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BEF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BEF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BGJ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BGJ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BGK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BGK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BGL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BGL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BGN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BGN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BHD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BHD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BIF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BIF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BMD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BMD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BND -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BND">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BOB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BOB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BOP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BOP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BOV -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BOV">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BRZ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BRZ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BSD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BSD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BTN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BTN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BWP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BWP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BYN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BYN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BYR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BYR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/BZD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/BZD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CAD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CAD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CDF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CDF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CHE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CHE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CHF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CHF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CHW -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CHW">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CLE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CLE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CLF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CLF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CLP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CLP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CNY -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CNY">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/COP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/COP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/COU -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/COU">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CRC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CRC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CSJ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CSJ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CSK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CSK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CUC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CUC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CUP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CUP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CVE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CVE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CYP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CYP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/CZK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/CZK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/DDM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/DDM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/DEM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/DEM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/DJF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/DJF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/DKK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/DKK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/DOP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/DOP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/DZD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/DZD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ECS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ECS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/EEK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/EEK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/EGP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/EGP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ERN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ERN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ESP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ESP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ETB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ETB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/EUR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/EUR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/FIM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/FIM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/FJD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/FJD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/FKP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/FKP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/FRF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/FRF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GBP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GBP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GEL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GEL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GHC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GHC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GHS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GHS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GIP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GIP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GMD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GMD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GNE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GNE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GNF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GNF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GQE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GQE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GRD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GRD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GTQ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GTQ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GWP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GWP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/GYD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/GYD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/HKD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/HKD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/HNL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/HNL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/HRK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/HRK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/HTG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/HTG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/HUF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/HUF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/IDR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/IDR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/IEP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/IEP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ILP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ILP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ILR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ILR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ILS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ILS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/INR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/INR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/IQD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/IQD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/IRR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/IRR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ISJ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ISJ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ISK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ISK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ITL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ITL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/JMD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/JMD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/JOD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/JOD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/JPY -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/JPY">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KES -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KES">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KGS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KGS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KHR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KHR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KMF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KMF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KPW -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KPW">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KRW -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KRW">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KWD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KWD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KYD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KYD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/KZT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/KZT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LAJ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LAJ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LAK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LAK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LBP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LBP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LKR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LKR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LRD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LRD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LSL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LSL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LTL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LTL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LUF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LUF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LVL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LVL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/LYD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/LYD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MAD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MAD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MCF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MCF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MDL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MDL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MGA -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MGA">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MGF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MGF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MKD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MKD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MKN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MKN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MLF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MLF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MMK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MMK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MNT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MNT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MOP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MOP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MRO -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MRO">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MRU -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MRU">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MTL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MTL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MTP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MTP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MUR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MUR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MVQ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MVQ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MVR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MVR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MWK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MWK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MXN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MXN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MXP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MXP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MXV -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MXV">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MYR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MYR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/MZN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/MZN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NAD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NAD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NFD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NFD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NGN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NGN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NIO -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NIO">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NLG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NLG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NOK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NOK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NPR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NPR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/NZD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/NZD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/OMR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/OMR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/OP_DATPRO -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/OP_DATPRO">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PAB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PAB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PEH -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PEH">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PEI -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PEI">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PEN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PEN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PGK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PGK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PHP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PHP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PKR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PKR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PLN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PLN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PLZ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PLZ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PTE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PTE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/PYG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/PYG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/QAR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/QAR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ROL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ROL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/RON -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/RON">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/RSD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/RSD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/RUB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/RUB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/RUR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/RUR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/RWF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/RWF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SAR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SAR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SBD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SBD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SCR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SCR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SDD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SDD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SDG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SDG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SEK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SEK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SGD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SGD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SHP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SHP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SIT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SIT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SKK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SKK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SLL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SLL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SML -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SML">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SOS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SOS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SQS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SQS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SRD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SRD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SRG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SRG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SSP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SSP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/STD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/STD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/STN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/STN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SUR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SUR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SVC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SVC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SYP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SYP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/SZL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/SZL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/THB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/THB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TJR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TJR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TJS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TJS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TMM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TMM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TMT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TMT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TND -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TND">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TOP -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TOP">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TPE -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TPE">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TRL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TRL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TRY -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TRY">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TTD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TTD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TVD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TVD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TWD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TWD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/TZS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/TZS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UAH -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UAH">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UAK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UAK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UGS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UGS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UGX -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UGX">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/USD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/USD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/USN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/USN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/USS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/USS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UYI -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UYI">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UYN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UYN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UYU -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UYU">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UYW -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UYW">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/UZS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/UZS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VAL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VAL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VEB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VEB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VED -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VED">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VEF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VEF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VES -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VES">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VNC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VNC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VND -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VND">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/VUV -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/VUV">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/WST -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/WST">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XAF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XAF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XAG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XAG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XAU -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XAU">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XBA -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XBA">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XBB -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XBB">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XBC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XBC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XBD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XBD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XBT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XBT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XCD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XCD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XDR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XDR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XEU -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XEU">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XOF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XOF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XPD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XPD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XPF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XPF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XPT -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XPT">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XSU -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XSU">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XTS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XTS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XUA -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XUA">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/XXX -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/XXX">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YDD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YDD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YER -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YER">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUF -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUF">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUG -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUG">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUM -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUM">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUO -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUO">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/YUS -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/YUS">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZAR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZAR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZMK -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZMK">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZMW -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZMW">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZRN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZRN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZRZ -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZRZ">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZWC -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZWC">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZWD -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZWD">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZWL -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZWL">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZWN -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZWN">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://publications.europa.eu/resource/authority/currency/ZWR -->
+
+    <owl:NamedIndividual rdf:about="http://publications.europa.eu/resource/authority/currency/ZWR">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Currency"/>
+    </owl:NamedIndividual>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism# -->
 
-
     <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#">
-        <terms:description>Ontology code created by Chowlk</terms:description>
-        <terms:title>The AURORAL Tourism Ontology</terms:title>
+        <dcterms:description>Ontology code created by Chowlk</dcterms:description>
+        <dcterms:title>The AURORAL Tourism Ontology</dcterms:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Agree -->
+
+    <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Agree">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Emotion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Disagree -->
+
+    <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Disagree">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Emotion"/>
     </owl:NamedIndividual>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#Easy -->
 
-
     <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Easy">
-        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"/>
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Euros -->
+
+    <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Euros"/>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#Hard -->
 
-
     <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Hard">
-        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"/>
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
     </owl:NamedIndividual>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#Medium -->
 
-
     <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Medium">
-        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"/>
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#Neutral -->
+
+    <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#Neutral">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Emotion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://auroral.iot.linkeddata.es/def/tourism#PriceActivity1 -->
+
+    <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#PriceActivity1">
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Price"/>
+        <inCurrency rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Euros"/>
+        <amount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</amount>
     </owl:NamedIndividual>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#VeryEasy -->
 
-
     <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#VeryEasy">
-        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"/>
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
     </owl:NamedIndividual>
     
 
 
     <!-- https://auroral.iot.linkeddata.es/def/tourism#VeryHard -->
 
-
     <owl:NamedIndividual rdf:about="https://auroral.iot.linkeddata.es/def/tourism#VeryHard">
-        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty"/>
+        <rdf:type rdf:resource="https://auroral.iot.linkeddata.es/def/tourism#Difficulty"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
-
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 

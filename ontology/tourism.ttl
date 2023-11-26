@@ -16,17 +16,26 @@
 @base <https://auroral.iot.linkeddata.es/def/tourism#> .
 
 <https://auroral.iot.linkeddata.es/def/tourism#> rdf:type owl:Ontology ;
-                                                  dcterms:creator "Ahlem Rhayem" ,
-                                                                  "Andrea Cimmino" ,
-                                                                  "Juan Cano" ,
-                                                                  "María Poveda-Villalón" ,
-                                                                  "Raúl Garcia-Castro" ;
+                                                  <http://purl.org/dc/elements/1.1/creator> "Ahlem Rhayem" ,
+                                                                                            "Andrea Cimmino" ,
+                                                                                            "Juan Cano" ,
+                                                                                            "María Poveda-Villalón" ,
+                                                                                            "Raúl Garcia-Castro" ;
+                                                  <http://purl.org/dc/elements/1.1/description> "This ontology aims at modelling the tourism data for the AURORAL project." ;
                                                   dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
                                                   owl:versionInfo "0.0.1" .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.org/dc/terms/creator
 dcterms:creator rdf:type owl:AnnotationProperty .
