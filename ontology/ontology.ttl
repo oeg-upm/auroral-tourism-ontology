@@ -371,12 +371,14 @@ skos:Concept rdf:type owl:Class ;
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Agree
 tour:Agree rdf:type owl:NamedIndividual ,
-                    tour:Emotion .
+                    tour:Emotion ;
+           rdfs:label "agree" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Disagree
 tour:Disagree rdf:type owl:NamedIndividual ,
-                       tour:Emotion .
+                       tour:Emotion ;
+              rdfs:label "disagree" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Easy
@@ -396,7 +398,8 @@ tour:Medium rdf:type owl:NamedIndividual ,
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Neutral
 tour:Neutral rdf:type owl:NamedIndividual ,
-                      tour:Emotion .
+                      tour:Emotion ;
+             rdfs:label "neutral" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#VeryEasy

@@ -1,0 +1,221 @@
+@prefix : <https://auroral.iot.linkeddata.es/tests/tour#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://auroral.iot.linkeddata.es/tests/tour#> .
+
+<https://auroral.iot.linkeddata.es/tests/tour#> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/def/vtc#belongsTo
+<https://w3id.org/def/vtc#belongsTo> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/def/vtc#desiredBehaviour
+<https://w3id.org/def/vtc#desiredBehaviour> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/def/vtc#TestCaseDesign
+<https://w3id.org/def/vtc#TestCaseDesign> rdf:type owl:Class ;
+                                          dc:description "An activity have a price" ;
+                                          <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                          <https://w3id.org/def/vtc#desiredBehaviour> "Activity hasStartingPrice Price" .
+
+
+###  https://w3id.org/def/vtc#TestSuite
+<https://w3id.org/def/vtc#TestSuite> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/def/vtc#Test1
+<https://w3id.org/def/vtc#Test1> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "An activity have difficulty" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Activity hasDifficulty Difficulty" .
+
+
+###  https://w3id.org/def/vtc#Test10
+<https://w3id.org/def/vtc#Test10> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> .
+
+
+###  https://w3id.org/def/vtc#Test11
+<https://w3id.org/def/vtc#Test11> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "an activity has a tour" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Activity hasTour Tour" .
+
+
+###  https://w3id.org/def/vtc#Test12
+<https://w3id.org/def/vtc#Test12> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "an activity has an event" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Activity hasEvent Event" .
+
+
+###  https://w3id.org/def/vtc#Test13
+<https://w3id.org/def/vtc#Test13> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "Activity has a GeoPolygon" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Activity hasGeopPolygon Polygon" .
+
+
+###  https://w3id.org/def/vtc#Test14
+<https://w3id.org/def/vtc#Test14> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "User has an Emotion" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "User hasEmotion Emotion" .
+
+
+###  https://w3id.org/def/vtc#Test15
+<https://w3id.org/def/vtc#Test15> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "Emotion is about an activity" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Emotion isAbout Activity" .
+
+
+###  https://w3id.org/def/vtc#Test16
+<https://w3id.org/def/vtc#Test16> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "There are 3 types of emotion: Agree, Disagree and Neutral" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Agree type Emotion" .
+
+
+###  https://w3id.org/def/vtc#Test17
+<https://w3id.org/def/vtc#Test17> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "There are 3 types of emotion: Agree, Disagree and Neutral" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Disagree type Emotion" .
+
+
+###  https://w3id.org/def/vtc#Test18
+<https://w3id.org/def/vtc#Test18> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description "There are 3 types of emotion: Agree, Disagree and Neutral" ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Neutral type Emotion" .
+
+
+###  https://w3id.org/def/vtc#Test19
+<https://w3id.org/def/vtc#Test19> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Activity mapPoint Image" .
+
+
+###  https://w3id.org/def/vtc#Test2
+<https://w3id.org/def/vtc#Test2> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "An activity have a language" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Activity language Language" .
+
+
+###  https://w3id.org/def/vtc#Test20
+<https://w3id.org/def/vtc#Test20> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  dc:description <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Activity coverImage Image" .
+
+
+###  https://w3id.org/def/vtc#Test21
+<https://w3id.org/def/vtc#Test21> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Tour hasDifficulty Difficulty" .
+
+
+###  https://w3id.org/def/vtc#Test22
+<https://w3id.org/def/vtc#Test22> rdf:type owl:NamedIndividual ,
+                                           <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                  <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                  <https://w3id.org/def/vtc#desiredBehaviour> "Tour hasGeoPolygon Polygon" .
+
+
+###  https://w3id.org/def/vtc#Test3
+<https://w3id.org/def/vtc#Test3> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "An activity have a location" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Activity location Point" .
+
+
+###  https://w3id.org/def/vtc#Test4
+<https://w3id.org/def/vtc#Test4> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "An activity have a Channel" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Activity postedToChannel Channel" .
+
+
+###  https://w3id.org/def/vtc#Test5
+<https://w3id.org/def/vtc#Test5> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "There are five types of activity difficulty: Very easy, easy, medium, hard, very hard" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "VeryEasy subClassOf Difficulty" .
+
+
+###  https://w3id.org/def/vtc#Test6
+<https://w3id.org/def/vtc#Test6> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "There are five types of activity difficulty: Very easy, easy, medium, hard, very hard" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Easy subClassOf Difficulty" .
+
+
+###  https://w3id.org/def/vtc#Test7
+<https://w3id.org/def/vtc#Test7> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "There are five types of activity difficulty: Very easy, easy, medium, hard, very hard" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Medium subClassOf Difficulty" .
+
+
+###  https://w3id.org/def/vtc#Test8
+<https://w3id.org/def/vtc#Test8> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "There are five types of activity difficulty: Very easy, easy, medium, hard, very hard" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "Hard subClassOf Difficulty" .
+
+
+###  https://w3id.org/def/vtc#Test9
+<https://w3id.org/def/vtc#Test9> rdf:type owl:NamedIndividual ,
+                                          <https://w3id.org/def/vtc#TestCaseDesign> ;
+                                 dc:description "There are five types of activity difficulty: Very easy, easy, medium, hard, very hard" ;
+                                 <https://w3id.org/def/vtc#belongsTo> <https://w3id.org/def/vtc#TestsuiteTour> ;
+                                 <https://w3id.org/def/vtc#desiredBehaviour> "VeryHard subClassOf Difficulty" .
+
+
+###  https://w3id.org/def/vtc#TestsuiteTour
+<https://w3id.org/def/vtc#TestsuiteTour> rdf:type owl:NamedIndividual ,
+                                                  <https://w3id.org/def/vtc#TestSuite> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
