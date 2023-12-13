@@ -56,16 +56,19 @@ mod:createdWith rdf:type owl:AnnotationProperty .
 
 ###  http://lexvo.org/ontology#language
 lexvo:language rdf:type owl:ObjectProperty ;
+               rdfs:comment "A relationship between the activity and its language" ;
                rdfs:label "language" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#location
 geo:location rdf:type owl:ObjectProperty ;
+             rdfs:comment "A relationship between the activity and its location point" ;
              rdfs:label "location" .
 
 
 ###  http://xmlns.com/foaf/0.1/depiction
 foaf:depiction rdf:type owl:ObjectProperty ;
+               rdfs:comment "relationship between the activity and its images" ;
                rdfs:label "depiction" .
 
 
@@ -73,12 +76,14 @@ foaf:depiction rdf:type owl:ObjectProperty ;
 tour:coverImage rdf:type owl:ObjectProperty ;
                 rdfs:domain tour:Activity ;
                 rdfs:range foaf:Image ;
+                rdfs:comment "a relationship between the activity and the images that it covers" ;
                 rdfs:label "cover image" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty
 tour:hasDifficulty rdf:type owl:ObjectProperty ;
                    rdfs:range tour:Difficulty ;
+                   rdfs:comment "Relationship between the activity or a tour and their difficulties" ;
                    rdfs:label "has difficulty" .
 
 
@@ -86,6 +91,7 @@ tour:hasDifficulty rdf:type owl:ObjectProperty ;
 tour:hasEmotion rdf:type owl:ObjectProperty ;
                 rdfs:domain core:User ;
                 rdfs:range tour:Emotion ;
+                rdfs:comment "A relationship between the user and his emotions about a tourist activity" ;
                 rdfs:label "has emotion" .
 
 
@@ -93,12 +99,14 @@ tour:hasEmotion rdf:type owl:ObjectProperty ;
 tour:hasEvent rdf:type owl:ObjectProperty ;
               rdfs:domain tour:Activity ;
               rdfs:range tour:Event ;
+              rdfs:comment "A relationship between the activity and its events" ;
               rdfs:label "has event" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon
 tour:hasGeoPolygon rdf:type owl:ObjectProperty ;
                    rdfs:range sf:Polygon ;
+                   rdfs:comment "Relationship between the activity and the tour with the geopolygon position" ;
                    rdfs:label "has geo polygon" .
 
 
@@ -106,6 +114,7 @@ tour:hasGeoPolygon rdf:type owl:ObjectProperty ;
 tour:hasStartingPrice rdf:type owl:ObjectProperty ;
                       rdfs:domain tour:Activity ;
                       rdfs:range tour:Price ;
+                      rdfs:comment "A relationship between the activity and its price" ;
                       rdfs:label "has starting price" .
 
 
@@ -113,6 +122,7 @@ tour:hasStartingPrice rdf:type owl:ObjectProperty ;
 tour:hasTour rdf:type owl:ObjectProperty ;
              rdfs:domain tour:Activity ;
              rdfs:range tour:Tour ;
+             rdfs:comment "A relationship between the activity and its related tours" ;
              rdfs:label "has tour" .
 
 
@@ -120,6 +130,7 @@ tour:hasTour rdf:type owl:ObjectProperty ;
 tour:inCurrency rdf:type owl:ObjectProperty ;
                 rdfs:domain tour:Price ;
                 rdfs:range tour:Currency ;
+                rdfs:comment "A relationship between the price and its currency" ;
                 rdfs:label "in currency" .
 
 
@@ -127,6 +138,7 @@ tour:inCurrency rdf:type owl:ObjectProperty ;
 tour:isAbout rdf:type owl:ObjectProperty ;
              rdfs:domain tour:Emotion ;
              rdfs:range tour:Activity ;
+             rdfs:comment "A relationship between the activity and the emotion about it" ;
              rdfs:label "is about" .
 
 
@@ -134,6 +146,7 @@ tour:isAbout rdf:type owl:ObjectProperty ;
 tour:mapPoint rdf:type owl:ObjectProperty ;
               rdfs:domain tour:Activity ;
               rdfs:range foaf:Image ;
+              rdfs:comment "A relationship between the Activity and its image" ;
               rdfs:label "map point" .
 
 
@@ -141,6 +154,7 @@ tour:mapPoint rdf:type owl:ObjectProperty ;
 tour:postedToChannel rdf:type owl:ObjectProperty ;
                      rdfs:domain tour:Activity ;
                      rdfs:range tour:Channel ;
+                     rdfs:comment "A relationship between the activity and its channel" ;
                      rdfs:label "posted to channel" .
 
 
@@ -150,16 +164,19 @@ tour:postedToChannel rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/dc/elements/1.1/description
 dc:description rdf:type owl:DatatypeProperty ;
+               rdfs:comment "The description of an activity" ;
                rdfs:label "description" .
 
 
 ###  http://purl.org/dc/elements/1.1/lastModified
 dc:lastModified rdf:type owl:DatatypeProperty ;
+                rdfs:comment "The date of the last modification of a given entity" ;
                 rdfs:label "last modified" .
 
 
 ###  http://purl.org/dc/elements/1.1/rights
 dc:rights rdf:type owl:DatatypeProperty ;
+          rdfs:comment "The rigths related to a tourist activity" ;
           rdfs:label "rights" .
 
 
@@ -169,16 +186,19 @@ dc:title rdf:type owl:DatatypeProperty .
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
 geo:alt rdf:type owl:DatatypeProperty ;
+        rdfs:comment "Altitude of a given tourist activity" ;
         rdfs:label "alt" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
 geo:lat rdf:type owl:DatatypeProperty ;
+        rdfs:comment "Latitude of a given tourist activity" ;
         rdfs:label "lat" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#long
 geo:long rdf:type owl:DatatypeProperty ;
+         rdfs:comment "Longitude of a given tourist activity" ;
          rdfs:label "long" .
 
 
@@ -186,6 +206,7 @@ geo:long rdf:type owl:DatatypeProperty ;
 tour:activityLongDescriptionNotSearched rdf:type owl:DatatypeProperty ;
                                         rdfs:domain tour:Activity ;
                                         rdfs:range xsd:string ;
+                                        rdfs:comment "A long description about the tourist activity" ;
                                         rdfs:label "activity long description not searched" .
 
 
@@ -193,6 +214,7 @@ tour:activityLongDescriptionNotSearched rdf:type owl:DatatypeProperty ;
 tour:activityWebURL rdf:type owl:DatatypeProperty ;
                     rdfs:domain tour:Activity ;
                     rdfs:range xsd:anyURI ;
+                    rdfs:comment "The url of a tourist activity" ;
                     rdfs:label "activity web u r l" .
 
 
@@ -200,6 +222,7 @@ tour:activityWebURL rdf:type owl:DatatypeProperty ;
 tour:amount rdf:type owl:DatatypeProperty ;
             rdfs:domain tour:Price ;
             rdfs:range xsd:float ;
+            rdfs:comment "The amount of the price of a toursit activity" ;
             rdfs:label "amount" .
 
 
@@ -207,6 +230,7 @@ tour:amount rdf:type owl:DatatypeProperty ;
 tour:channelName rdf:type owl:DatatypeProperty ;
                  rdfs:domain tour:Channel ;
                  rdfs:range xsd:string ;
+                 rdfs:comment "The channel name where the tourist activity is posted" ;
                  rdfs:label "channel name" .
 
 
@@ -214,12 +238,15 @@ tour:channelName rdf:type owl:DatatypeProperty ;
 tour:end rdf:type owl:DatatypeProperty ;
          rdfs:domain tour:Event ;
          rdfs:range xsd:dateTime ;
+         rdfs:comment "The end time of a given tourist event" ;
          rdfs:label "end" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#endDate
 tour:endDate rdf:type owl:DatatypeProperty ;
              rdfs:domain tour:Activity ;
+             rdfs:range xsd:dateTime ;
+             rdfs:comment "The end time of a Tourist activity" ;
              rdfs:label "end date" .
 
 
@@ -227,6 +254,7 @@ tour:endDate rdf:type owl:DatatypeProperty ;
 tour:externalBookingURL rdf:type owl:DatatypeProperty ;
                         rdfs:domain tour:Activity ;
                         rdfs:range xsd:anyURI ;
+                        rdfs:comment "The booking URI of a tourist activity" ;
                         rdfs:label "external booking u r l" .
 
 
@@ -234,6 +262,7 @@ tour:externalBookingURL rdf:type owl:DatatypeProperty ;
 tour:hiddenDescription rdf:type owl:DatatypeProperty ;
                        rdfs:domain tour:Activity ;
                        rdfs:range xsd:string ;
+                       rdfs:comment "The hidden decsription of a tourist activity" ;
                        rdfs:label "hidden description" .
 
 
@@ -241,6 +270,7 @@ tour:hiddenDescription rdf:type owl:DatatypeProperty ;
 tour:idChannel rdf:type owl:DatatypeProperty ;
                rdfs:domain tour:Channel ;
                rdfs:range xsd:string ;
+               rdfs:comment "The identifier of a Channel" ;
                rdfs:label "id channel" .
 
 
@@ -248,6 +278,7 @@ tour:idChannel rdf:type owl:DatatypeProperty ;
 tour:identifier rdf:type owl:DatatypeProperty ;
                 rdfs:domain tour:Activity ;
                 rdfs:range xsd:string ;
+                rdfs:comment "The identifier of the tourist activity" ;
                 rdfs:label "identifier" .
 
 
@@ -255,12 +286,15 @@ tour:identifier rdf:type owl:DatatypeProperty ;
 tour:isBookable rdf:type owl:DatatypeProperty ;
                 rdfs:domain tour:Activity ;
                 rdfs:range xsd:boolean ;
+                rdfs:comment "Determines weither the tourist activity is bookable or not" ;
                 rdfs:label "is bookable" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#longDescription
 tour:longDescription rdf:type owl:DatatypeProperty ;
                      rdfs:domain tour:Activity ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Long description about the tourist activity" ;
                      rdfs:label "long description" .
 
 
@@ -268,12 +302,15 @@ tour:longDescription rdf:type owl:DatatypeProperty ;
 tour:mapPointCategory rdf:type owl:DatatypeProperty ;
                       rdfs:domain tour:Activity ;
                       rdfs:range xsd:string ;
+                      rdfs:comment "The map point of a touris activity" ;
                       rdfs:label "map point category" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#shortDescription
 tour:shortDescription rdf:type owl:DatatypeProperty ;
                       rdfs:domain tour:Activity ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "A short decsription about the tourist activity" ;
                       rdfs:label "short description" .
 
 
@@ -281,12 +318,15 @@ tour:shortDescription rdf:type owl:DatatypeProperty ;
 tour:start rdf:type owl:DatatypeProperty ;
            rdfs:domain tour:Event ;
            rdfs:range xsd:dateTime ;
+           rdfs:comment "The start time of an  event" ;
            rdfs:label "start" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#startDate
 tour:startDate rdf:type owl:DatatypeProperty ;
                rdfs:domain tour:Activity ;
+               rdfs:range xsd:dateTime ;
+               rdfs:comment "The start date of a tourist activity" ;
                rdfs:label "start date" .
 
 
@@ -296,72 +336,86 @@ tour:startDate rdf:type owl:DatatypeProperty ;
 
 ###  http://lexvo.org/ontology#Language
 lexvo:Language rdf:type owl:Class ;
+               rdfs:comment "The language of the tourist activity" ;
                rdfs:label "Language" .
 
 
 ###  http://www.opengis.net/ont/sf#Polygon
 sf:Polygon rdf:type owl:Class ;
+           rdfs:comment "The polygon coordination of the tourist activity" ;
            rdfs:label "Polygon" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#Point
 geo:Point rdf:type owl:Class ;
+          rdfs:comment "The geospatial coordination of the tourist activity place" ;
           rdfs:label "Point" .
 
 
 ###  http://xmlns.com/foaf/0.1/Image
 foaf:Image rdf:type owl:Class ;
+           rdfs:comment "An image related to a tourist Activity" ;
            rdfs:label "Image" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#User
 core:User rdf:type owl:Class ;
+          rdfs:comment "The person concerned for the tourist activity" ;
           rdfs:label "User" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Activity
 tour:Activity rdf:type owl:Class ;
+              rdfs:comment "It is defined as a tourist activity." ;
               rdfs:label "Activity" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Channel
 tour:Channel rdf:type owl:Class ;
+             rdfs:comment "Each activity is posted to a channel" ;
              rdfs:label "Channel" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Currency
 tour:Currency rdf:type owl:Class ;
+              rdfs:comment "The currency of a Price (euros, dollars, dinars, etc. )" ;
               rdfs:label "Currency" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Difficulty
 tour:Difficulty rdf:type owl:Class ;
                 rdfs:subClassOf skos:Concept ;
+                rdfs:comment "Defines hierarchies linked to the difficulty of tourist activity" ;
                 rdfs:label "Difficulty" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Emotion
 tour:Emotion rdf:type owl:Class ;
+             rdfs:comment "The emotion related to a tourist activity" ;
              rdfs:label "Emotion" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Event
 tour:Event rdf:type owl:Class ;
+           rdfs:comment "A tourist event" ;
            rdfs:label "Event" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Price
 tour:Price rdf:type owl:Class ;
+           rdfs:comment "Price of an activity" ;
            rdfs:label "Price" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Tour
 tour:Tour rdf:type owl:Class ;
+          rdfs:comment "The tour of an activity" ;
           rdfs:label "Tour" .
 
 
 ###  https://www.w3.org/ns/org#Concept
 skos:Concept rdf:type owl:Class ;
+             rdfs:comment "Defines hierarchies linked to the difficulty of tourist activity" ;
              rdfs:label "Concept" .
 
 
@@ -416,7 +470,8 @@ tour:VeryHard rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
-dc:title rdfs:label "title" .
+dc:title rdfs:comment "The title of a tourist activity" ;
+         rdfs:label "title" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
