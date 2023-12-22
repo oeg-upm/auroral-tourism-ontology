@@ -1,17 +1,13 @@
-<h2 id="overv" class="list">[Ontology Name]: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<h2 id="overv" class="list">The AURORAL Tourism Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology has the following classes and properties.</span>
 <h4>Classes</h4>
-<ul xmlns:extra="https://w3id.org/extra#"
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
       <a href="#Activity"
          title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
-   </li>
-   <li>
-      <a href="#ActivityDifficulty"
-         title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
    </li>
    <li>
       <a href="#Channel"
@@ -25,19 +21,41 @@ This ontology has the following classes and properties.</span>
          title="https://auroral.iot.linkeddata.es/def/tourism#Currency">Currency</a>
    </li>
    <li>
+      <a href="#Difficulty"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
+   </li>
+   <li>
+      <a href="#Emotion"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
+   </li>
+   <li>
+      <a href="#Event"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Event">Event</a>
+   </li>
+   <li>
       <a href="#http://xmlns.com/foaf/0.1/Image" title="http://xmlns.com/foaf/0.1/Image">Image</a>
    </li>
    <li>
-      <a href="#http://purl.org/dc/terms/LinguisticSystem" title="http://purl.org/dc/terms/LinguisticSystem">Linguistic System</a>
+      <a href="#http://lexvo.org/ontology#Language" title="http://lexvo.org/ontology#Language">Language</a>
    </li>
    <li>
       <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#Point" title="http://www.w3.org/2003/01/geo/wgs84_pos#Point">Point</a>
    </li>
    <li>
+      <a href="#http://www.opengis.net/ont/sf#Polygon" title="http://www.opengis.net/ont/sf#Polygon">Polygon</a>
+   </li>
+   <li>
       <a href="#Price"
          title="https://auroral.iot.linkeddata.es/def/tourism#Price">Price</a>
    </li>
-</ul><h4>Object Properties</h4><ul xmlns:extra="https://w3id.org/extra#"
+   <li>
+      <a href="#Tour"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Tour">Tour</a>
+   </li>
+   <li>
+      <a href="#https://auroral.iot.linkeddata.es/def/core#User" title="https://auroral.iot.linkeddata.es/def/core#User">User</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
@@ -48,15 +66,39 @@ This ontology has the following classes and properties.</span>
       <a href="#http://xmlns.com/foaf/0.1/depiction" title="http://xmlns.com/foaf/0.1/depiction">depiction</a>
    </li>
    <li>
+      <a href="#hasDifficulty"
+         title="https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty">has difficulty</a>
+   </li>
+   <li>
+      <a href="#hasEmotion"
+         title="https://auroral.iot.linkeddata.es/def/tourism#hasEmotion">has emotion</a>
+   </li>
+   <li>
+      <a href="#hasEvent"
+         title="https://auroral.iot.linkeddata.es/def/tourism#hasEvent">has event</a>
+   </li>
+   <li>
+      <a href="#hasGeoPolygon"
+         title="https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon">has geo polygon</a>
+   </li>
+   <li>
       <a href="#hasStartingPrice"
          title="https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice">has starting price</a>
+   </li>
+   <li>
+      <a href="#hasTour"
+         title="https://auroral.iot.linkeddata.es/def/tourism#hasTour">has tour</a>
    </li>
    <li>
       <a href="#inCurrency"
          title="https://auroral.iot.linkeddata.es/def/tourism#inCurrency">in currency</a>
    </li>
    <li>
-      <a href="#http://purl.org/dc/terms/language" title="http://purl.org/dc/terms/language">language</a>
+      <a href="#isAbout"
+         title="https://auroral.iot.linkeddata.es/def/tourism#isAbout">is about</a>
+   </li>
+   <li>
+      <a href="#http://lexvo.org/ontology#language" title="http://lexvo.org/ontology#language">language</a>
    </li>
    <li>
       <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#location" title="http://www.w3.org/2003/01/geo/wgs84_pos#location">location</a>
@@ -69,9 +111,17 @@ This ontology has the following classes and properties.</span>
       <a href="#postedToChannel"
          title="https://auroral.iot.linkeddata.es/def/tourism#postedToChannel">posted to channel</a>
    </li>
-</ul><h4>Data Properties</h4><ul xmlns:extra="https://w3id.org/extra#"
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
+   <li>
+      <a href="#activityLongDescriptionNotSearched"
+         title="https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched">activity long description not searched</a>
+   </li>
+   <li>
+      <a href="#activityWebURL"
+         title="https://auroral.iot.linkeddata.es/def/tourism#activityWebURL">activity web u r l</a>
+   </li>
    <li>
       <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#alt" title="http://www.w3.org/2003/01/geo/wgs84_pos#alt">alt</a>
    </li>
@@ -84,7 +134,11 @@ This ontology has the following classes and properties.</span>
          title="https://auroral.iot.linkeddata.es/def/tourism#channelName">channel name</a>
    </li>
    <li>
-      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a>
+      <a href="#http://purl.org/dc/elements/1.1/description" title="http://purl.org/dc/elements/1.1/description">description</a>
+   </li>
+   <li>
+      <a href="#end"
+         title="https://auroral.iot.linkeddata.es/def/tourism#end">end</a>
    </li>
    <li>
       <a href="#endDate"
@@ -99,6 +153,10 @@ This ontology has the following classes and properties.</span>
          title="https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription">hidden description</a>
    </li>
    <li>
+      <a href="#idChannel"
+         title="https://auroral.iot.linkeddata.es/def/tourism#idChannel">id channel</a>
+   </li>
+   <li>
       <a href="#identifier"
          title="https://auroral.iot.linkeddata.es/def/tourism#identifier">identifier</a>
    </li>
@@ -107,7 +165,7 @@ This ontology has the following classes and properties.</span>
          title="https://auroral.iot.linkeddata.es/def/tourism#isBookable">is bookable</a>
    </li>
    <li>
-      <a href="#http://purl.org/dc/terms/lastModified" title="http://purl.org/dc/terms/lastModified">last modified</a>
+      <a href="#http://purl.org/dc/elements/1.1/lastModified" title="http://purl.org/dc/elements/1.1/lastModified">last modified</a>
    </li>
    <li>
       <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#lat" title="http://www.w3.org/2003/01/geo/wgs84_pos#lat">lat</a>
@@ -120,26 +178,34 @@ This ontology has the following classes and properties.</span>
          title="https://auroral.iot.linkeddata.es/def/tourism#longDescription">long description</a>
    </li>
    <li>
-      <a href="#http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">rights</a>
+      <a href="#mapPointCategory"
+         title="https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory">map point category</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/rights" title="http://purl.org/dc/elements/1.1/rights">rights</a>
    </li>
    <li>
       <a href="#shortDescription"
          title="https://auroral.iot.linkeddata.es/def/tourism#shortDescription">short description</a>
    </li>
    <li>
+      <a href="#start"
+         title="https://auroral.iot.linkeddata.es/def/tourism#start">start</a>
+   </li>
+   <li>
       <a href="#startDate"
          title="https://auroral.iot.linkeddata.es/def/tourism#startDate">start date</a>
    </li>
-   <li>
-      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">title</a>
-   </li>
-</ul><h4>Named Individuals</h4><ul xmlns:extra="https://w3id.org/extra#"
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
-      <a href="#" title="https://auroral.iot.linkeddata.es/def/tourism#">
-         <span></span>
-      </a>
+      <a href="#Agree"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Agree">agree</a>
+   </li>
+   <li>
+      <a href="#Disagree"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Disagree">disagree</a>
    </li>
    <li>
       <a href="#Easy"
@@ -160,6 +226,10 @@ This ontology has the following classes and properties.</span>
       </a>
    </li>
    <li>
+      <a href="#Neutral"
+         title="https://auroral.iot.linkeddata.es/def/tourism#Neutral">neutral</a>
+   </li>
+   <li>
       <a href="#VeryEasy"
          title="https://auroral.iot.linkeddata.es/def/tourism#VeryEasy">
          <span>very easy</span>
@@ -171,4 +241,6 @@ This ontology has the following classes and properties.</span>
          <span>very hard</span>
       </a>
    </li>
-</ul>
+</ul><h4> Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist"/>

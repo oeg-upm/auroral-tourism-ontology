@@ -1,18 +1,9 @@
 @prefix : <https://auroral.iot.linkeddata.es/def/tourism#> .
-@prefix sf: <http://www.opengis.net/ont/sf#> .
-@prefix cur: <http://publications.europa.eu/resource/authority/currency/> .
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <https://www.w3.org/ns/org#> .
-@prefix tour: <https://auroral.iot.linkeddata.es/def/tourism#> .
-@prefix geosp: <http://www.opengis.net/ont/geosparql#> .
-@prefix lexvo: <http://lexvo.org/ontology> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://auroral.iot.linkeddata.es/def/tourism#> .
 
 <https://auroral.iot.linkeddata.es/def/tourism#> rdf:type owl:Ontology ;
@@ -21,9 +12,10 @@
                                                                                             "Juan Cano" ,
                                                                                             "María Poveda-Villalón" ,
                                                                                             "Raúl Garcia-Castro" ;
-                                                  <http://purl.org/dc/elements/1.1/description> "This ontology aims at modelling the tourism data for the AURORAL project." ;
-                                                  dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
-                                                  owl:versionInfo "0.0.1" .
+                                                  <http://purl.org/dc/elements/1.1/title> "The AURORAL Tourism Ontology" ;
+                                                  <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
+                                                  owl:versionInfo "0.0.1" ;
+                                                  <https://w3id.org/mod#createdWith> <https://chowlk.linkeddata.es/> .
 
 #################################################################
 #    Annotation properties
@@ -33,24 +25,20 @@
 <http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/elements/1.1/description
-<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
 
 
-#################################################################
-#    Datatypes
-#################################################################
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
 
-###  http://www.w3.org/2001/XMLSchema#date
-xsd:date rdf:type rdfs:Datatype .
+
+###  https://w3id.org/mod#createdWith
+<https://w3id.org/mod#createdWith> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -59,252 +47,278 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://lexvo.org/ontology#language
 <http://lexvo.org/ontology#language> rdf:type owl:ObjectProperty ;
-                                     rdfs:range <http://lexvo.org/ontology#Language> ;
+                                     rdfs:comment "A relationship between the activity and its language" ;
                                      rdfs:label "language" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#location
-geo:location rdf:type owl:ObjectProperty ;
-             rdfs:range geo:Point ;
-             rdfs:label "location" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:ObjectProperty ;
+                                                   rdfs:comment "A relationship between the activity and its location point" ;
+                                                   rdfs:label "location" .
 
 
 ###  http://xmlns.com/foaf/0.1/depiction
-foaf:depiction rdf:type owl:ObjectProperty ;
-               rdfs:label "depiction" .
+<http://xmlns.com/foaf/0.1/depiction> rdf:type owl:ObjectProperty ;
+                                      rdfs:comment "relationship between the activity and its images" ;
+                                      rdfs:label "depiction" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#coverImage
-tour:coverImage rdf:type owl:ObjectProperty ;
-                rdfs:domain tour:Activity ;
-                rdfs:range foaf:Image ;
-                rdfs:label "cover image" .
+:coverImage rdf:type owl:ObjectProperty ;
+            rdfs:domain :Activity ;
+            rdfs:range <http://xmlns.com/foaf/0.1/Image> ;
+            rdfs:comment "a relationship between the activity and the images that it covers" ;
+            rdfs:label "cover image" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty
-tour:hasDifficulty rdf:type owl:ObjectProperty ;
-                   rdfs:range tour:Difficulty ;
-                   rdfs:label "activity difficulty" .
+:hasDifficulty rdf:type owl:ObjectProperty ;
+               rdfs:range :Difficulty ;
+               rdfs:comment "Relationship between the activity or a tour and their difficulties" ;
+               rdfs:label "has difficulty" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasEmotion
-tour:hasEmotion rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://auroral.iot.linkeddata.es/def/core#User> ;
-                rdfs:range tour:Emotion .
+:hasEmotion rdf:type owl:ObjectProperty ;
+            rdfs:domain <https://auroral.iot.linkeddata.es/def/core#User> ;
+            rdfs:range :Emotion ;
+            rdfs:comment "A relationship between the user and his emotions about a tourist activity" ;
+            rdfs:label "has emotion" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasEvent
-tour:hasEvent rdf:type owl:ObjectProperty ;
-              rdfs:domain tour:Activity ;
-              rdfs:range tour:Event ;
-              rdfs:label "has event" .
+:hasEvent rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range :Event ;
+          rdfs:comment "A relationship between the activity and its events" ;
+          rdfs:label "has event" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon
-tour:hasGeoPolygon rdf:type owl:ObjectProperty ;
-                   rdfs:range sf:Polygon ;
-                   rdfs:comment "has Geo Polygon" ;
-                   rdfs:label "has geo polygon" .
+:hasGeoPolygon rdf:type owl:ObjectProperty ;
+               rdfs:range <http://www.opengis.net/ont/sf#Polygon> ;
+               rdfs:comment "Relationship between the activity and the tour with the geopolygon position" ;
+               rdfs:label "has geo polygon" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice
-tour:hasStartingPrice rdf:type owl:ObjectProperty ;
-                      rdfs:domain tour:Activity ;
-                      rdfs:range tour:Price ;
-                      rdfs:label "has starting price" .
+:hasStartingPrice rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Activity ;
+                  rdfs:range :Price ;
+                  rdfs:comment "A relationship between the activity and its price" ;
+                  rdfs:label "has starting price" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hasTour
-tour:hasTour rdf:type owl:ObjectProperty ;
-             rdfs:domain tour:Activity ;
-             rdfs:range tour:Tour ;
-             rdfs:label "has tour" .
+:hasTour rdf:type owl:ObjectProperty ;
+         rdfs:domain :Activity ;
+         rdfs:range :Tour ;
+         rdfs:comment "A relationship between the activity and its related tours" ;
+         rdfs:label "has tour" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#inCurrency
-tour:inCurrency rdf:type owl:ObjectProperty ;
-                rdfs:domain tour:Price ;
-                rdfs:range tour:Currency ;
-                rdfs:label "in currency" .
+:inCurrency rdf:type owl:ObjectProperty ;
+            rdfs:domain :Price ;
+            rdfs:range :Currency ;
+            rdfs:comment "A relationship between the price and its currency" ;
+            rdfs:label "in currency" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#isAbout
-tour:isAbout rdf:type owl:ObjectProperty ;
-             rdfs:domain tour:Emotion ;
-             rdfs:range tour:Activity .
+:isAbout rdf:type owl:ObjectProperty ;
+         rdfs:domain :Emotion ;
+         rdfs:range :Activity ;
+         rdfs:comment "A relationship between the activity and the emotion about it" ;
+         rdfs:label "is about" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#mapPoint
-tour:mapPoint rdf:type owl:ObjectProperty ;
-              rdfs:domain tour:Activity ;
-              rdfs:range foaf:Image ;
-              rdfs:label "map point" .
+:mapPoint rdf:type owl:ObjectProperty ;
+          rdfs:domain :Activity ;
+          rdfs:range <http://xmlns.com/foaf/0.1/Image> ;
+          rdfs:comment "A relationship between the Activity and its image" ;
+          rdfs:label "map point" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#postedToChannel
-tour:postedToChannel rdf:type owl:ObjectProperty ;
-                     rdfs:domain tour:Activity ;
-                     rdfs:range tour:Channel ;
-                     rdfs:label "posted to channel" .
-
-
-###  https://auroral.iot.linkeddata.es/def/tourism#tourDifficulty
-tour:tourDifficulty rdf:type owl:ObjectProperty ;
-                    rdfs:domain tour:Tour ;
-                    rdfs:range tour:Difficulty ;
-                    rdfs:label "tour activity" .
+:postedToChannel rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Activity ;
+                 rdfs:range :Channel ;
+                 rdfs:comment "A relationship between the activity and its channel" ;
+                 rdfs:label "posted to channel" .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:DatatypeProperty ;
-                    rdfs:domain tour:Activity ;
-                    rdfs:range xsd:string ;
-                    rdfs:label "description" .
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:DatatypeProperty ;
+                                              rdfs:comment "The description of an activity" ;
+                                              rdfs:label "description" .
 
 
-###  http://purl.org/dc/terms/lastModified
-dcterms:lastModified rdf:type owl:DatatypeProperty ;
-                     rdfs:label "last modified" .
+###  http://purl.org/dc/elements/1.1/lastModified
+<http://purl.org/dc/elements/1.1/lastModified> rdf:type owl:DatatypeProperty ;
+                                               rdfs:comment "The date of the last modification of a given entity" ;
+                                               rdfs:label "last modified" .
 
 
-###  http://purl.org/dc/terms/rights
-dcterms:rights rdf:type owl:DatatypeProperty ;
-               rdfs:label "rights" .
+###  http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> rdf:type owl:DatatypeProperty ;
+                                         rdfs:comment "The rigths related to a tourist activity" ;
+                                         rdfs:label "rights" .
 
 
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:DatatypeProperty ;
-              rdfs:label "title" .
-
-
-###  http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityLongDescriptionNotSearched
-<http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityLongDescriptionNotSearched> rdf:type owl:DatatypeProperty ;
-                                                                                                rdfs:domain tour:Activity ;
-                                                                                                rdfs:range xsd:string ;
-                                                                                                rdfs:label "activity long description not searched" .
-
-
-###  http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityWebURL
-<http://www.semanticweb.org/user/ontologies/2022/5/adapters#activityWebURL> rdf:type owl:DatatypeProperty ;
-                                                                            rdfs:domain tour:Activity ;
-                                                                            rdfs:range xsd:anyURI ;
-                                                                            rdfs:label "activity web url" .
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:DatatypeProperty .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
-geo:alt rdf:type owl:DatatypeProperty ;
-        rdfs:label "alt" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#alt> rdf:type owl:DatatypeProperty ;
+                                              rdfs:comment "Altitude of a given tourist activity" ;
+                                              rdfs:label "alt" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
-geo:lat rdf:type owl:DatatypeProperty ;
-        rdfs:label "lat" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type owl:DatatypeProperty ;
+                                              rdfs:comment "Latitude of a given tourist activity" ;
+                                              rdfs:label "lat" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#long
-geo:long rdf:type owl:DatatypeProperty ;
-         rdfs:label "long" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type owl:DatatypeProperty ;
+                                               rdfs:comment "Longitude of a given tourist activity" ;
+                                               rdfs:label "long" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched
+:activityLongDescriptionNotSearched rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Activity ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "A long description about the tourist activity" ;
+                                    rdfs:label "activity long description not searched" .
+
+
+###  https://auroral.iot.linkeddata.es/def/tourism#activityWebURL
+:activityWebURL rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Activity ;
+                rdfs:range xsd:anyURI ;
+                rdfs:comment "The url of a tourist activity" ;
+                rdfs:label "activity web u r l" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#amount
-tour:amount rdf:type owl:DatatypeProperty ;
-            rdfs:domain tour:Price ;
-            rdfs:range xsd:float ;
-            rdfs:label "amount" .
+:amount rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Price ;
+        rdfs:range xsd:float ;
+        rdfs:comment "The amount of the price of a toursit activity" ;
+        rdfs:label "amount" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#channelName
-tour:channelName rdf:type owl:DatatypeProperty ;
-                 rdfs:domain tour:Channel ;
-                 rdfs:range xsd:string ;
-                 rdfs:label "channel name" .
+:channelName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Channel ;
+             rdfs:range xsd:string ;
+             rdfs:comment "The channel name where the tourist activity is posted" ;
+             rdfs:label "channel name" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#end
-tour:end rdf:type owl:DatatypeProperty ;
-         rdfs:domain tour:Event ;
-         rdfs:range xsd:dateTime ;
-         rdfs:label "end" .
+:end rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Event ;
+     rdfs:range xsd:dateTime ;
+     rdfs:comment "The end time of a given tourist event" ;
+     rdfs:label "end" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#endDate
-tour:endDate rdf:type owl:DatatypeProperty ;
-             rdfs:domain tour:Activity ;
-             rdfs:range xsd:dateTime ;
-             rdfs:label "end date" .
+:endDate rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Activity ;
+         rdfs:range xsd:dateTime ;
+         rdfs:comment "The end time of a Tourist activity" ;
+         rdfs:label "end date" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL
-tour:externalBookingURL rdf:type owl:DatatypeProperty ;
-                        rdfs:domain tour:Activity ;
-                        rdfs:range xsd:anyURI ;
-                        rdfs:label "external booking u r l" .
+:externalBookingURL rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Activity ;
+                    rdfs:range xsd:anyURI ;
+                    rdfs:comment "The booking URI of a tourist activity" ;
+                    rdfs:label "external booking u r l" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription
-tour:hiddenDescription rdf:type owl:DatatypeProperty ;
-                       rdfs:domain tour:Activity ;
-                       rdfs:range xsd:string ;
-                       rdfs:label "hidden description" .
+:hiddenDescription rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Activity ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "The hidden decsription of a tourist activity" ;
+                   rdfs:label "hidden description" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#idChannel
-tour:idChannel rdf:type owl:DatatypeProperty ;
-               rdfs:domain tour:Channel ;
-               rdfs:range xsd:string .
+:idChannel rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Channel ;
+           rdfs:range xsd:string ;
+           rdfs:comment "The identifier of a Channel" ;
+           rdfs:label "id channel" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#identifier
-tour:identifier rdf:type owl:DatatypeProperty ;
-                rdfs:domain tour:Activity ;
-                rdfs:range xsd:string ;
-                rdfs:label "identifier" .
+:identifier rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Activity ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The identifier of the tourist activity" ;
+            rdfs:label "identifier" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#isBookable
-tour:isBookable rdf:type owl:DatatypeProperty ;
-                rdfs:domain tour:Activity ;
-                rdfs:range xsd:boolean ;
-                rdfs:label "is bookable" .
+:isBookable rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Activity ;
+            rdfs:range xsd:boolean ;
+            rdfs:comment "Determines weither the tourist activity is bookable or not" ;
+            rdfs:label "is bookable" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#longDescription
-tour:longDescription rdf:type owl:DatatypeProperty ;
-                     rdfs:domain tour:Activity ;
-                     rdfs:range xsd:string ;
-                     rdfs:label "long description" .
+:longDescription rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Activity ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Long description about the tourist activity" ;
+                 rdfs:label "long description" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory
-tour:mapPointCategory rdf:type owl:DatatypeProperty ;
-                      rdfs:domain tour:Activity ;
-                      rdfs:range xsd:string ;
-                      rdfs:label "map point category" .
+:mapPointCategory rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Activity ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The map point of a touris activity" ;
+                  rdfs:label "map point category" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#shortDescription
-tour:shortDescription rdf:type owl:DatatypeProperty ;
-                      rdfs:domain tour:Activity ;
-                      rdfs:range xsd:string ;
-                      rdfs:label "short description" .
+:shortDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Activity ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "A short decsription about the tourist activity" ;
+                  rdfs:label "short description" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#start
-tour:start rdf:type owl:DatatypeProperty ;
-           rdfs:domain tour:Event ;
-           rdfs:range xsd:dateTime ;
-           rdfs:label "start" .
+:start rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Event ;
+       rdfs:range xsd:dateTime ;
+       rdfs:comment "The start time of an  event" ;
+       rdfs:label "start" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#startDate
-tour:startDate rdf:type owl:DatatypeProperty ;
-               rdfs:domain tour:Activity ;
-               rdfs:range xsd:dateTime ;
-               rdfs:label "start date" .
+:startDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Activity ;
+           rdfs:range xsd:dateTime ;
+           rdfs:comment "The start date of a tourist activity" ;
+           rdfs:label "start date" .
 
 
 #################################################################
@@ -313,1617 +327,142 @@ tour:startDate rdf:type owl:DatatypeProperty ;
 
 ###  http://lexvo.org/ontology#Language
 <http://lexvo.org/ontology#Language> rdf:type owl:Class ;
+                                     rdfs:comment "The language of the tourist activity" ;
                                      rdfs:label "Language" .
 
 
 ###  http://www.opengis.net/ont/sf#Polygon
-sf:Polygon rdf:type owl:Class ;
-           rdfs:label "Polygon" .
+<http://www.opengis.net/ont/sf#Polygon> rdf:type owl:Class ;
+                                        rdfs:comment "The polygon coordination of the tourist activity" ;
+                                        rdfs:label "Polygon" .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#Point
-geo:Point rdf:type owl:Class ;
-          rdfs:label "Point" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> rdf:type owl:Class ;
+                                                rdfs:comment "The geospatial coordination of the tourist activity place" ;
+                                                rdfs:label "Point" .
 
 
 ###  http://xmlns.com/foaf/0.1/Image
-foaf:Image rdf:type owl:Class ;
-           rdfs:label "Image" .
+<http://xmlns.com/foaf/0.1/Image> rdf:type owl:Class ;
+                                  rdfs:comment "An image related to a tourist Activity" ;
+                                  rdfs:label "Image" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#User
 <https://auroral.iot.linkeddata.es/def/core#User> rdf:type owl:Class ;
+                                                  rdfs:comment "The person concerned for the tourist activity" ;
                                                   rdfs:label "User" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Activity
-tour:Activity rdf:type owl:Class ;
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty <http://lexvo.org/ontology#language> ;
-                                owl:someValuesFrom <http://lexvo.org/ontology#Language>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty geo:location ;
-                                owl:someValuesFrom geo:Point
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty foaf:depiction ;
-                                owl:someValuesFrom foaf:Image
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:coverImage ;
-                                owl:someValuesFrom foaf:Image
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:hasDifficulty ;
-                                owl:someValuesFrom tour:Difficulty
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:hasEmotion ;
-                                owl:someValuesFrom tour:Emotion
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:hasEvent ;
-                                owl:someValuesFrom tour:Event
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:hasGeoPolygon ;
-                                owl:someValuesFrom sf:Polygon
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:hasStartingPrice ;
-                                owl:someValuesFrom tour:Price
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:hasTour ;
-                                owl:someValuesFrom tour:Tour
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty tour:postedToChannel ;
-                                owl:someValuesFrom tour:Channel
-                              ] ;
-              rdfs:label "Activity" .
+:Activity rdf:type owl:Class ;
+          rdfs:comment "It is defined as a tourist activity." ;
+          rdfs:label "Activity" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Channel
-tour:Channel rdf:type owl:Class ;
-             rdfs:label "Channel" .
+:Channel rdf:type owl:Class ;
+         rdfs:comment "Each activity is posted to a channel" ;
+         rdfs:label "Channel" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Currency
-tour:Currency rdf:type owl:Class ;
-              rdfs:label "Currency" .
+:Currency rdf:type owl:Class ;
+          rdfs:comment "The currency of a Price (euros, dollars, dinars, etc. )" ;
+          rdfs:label "Currency" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Difficulty
-tour:Difficulty rdf:type owl:Class ;
-                rdfs:subClassOf skos:Concept ;
-                rdfs:label "Difficulty" .
+:Difficulty rdf:type owl:Class ;
+            rdfs:subClassOf <https://www.w3.org/ns/org#Concept> ;
+            rdfs:comment "Defines hierarchies linked to the difficulty of tourist activity" ;
+            rdfs:label "Difficulty" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Emotion
-tour:Emotion rdf:type owl:Class ;
-             rdfs:comment "Emotion of users about a tourism activity that could be : agree, disagree, and neutral" ;
-             rdfs:label "Emotion" .
+:Emotion rdf:type owl:Class ;
+         rdfs:comment "The emotion related to a tourist activity" ;
+         rdfs:label "Emotion" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Event
-tour:Event rdf:type owl:Class ;
-           rdfs:label "Event" .
+:Event rdf:type owl:Class ;
+       rdfs:comment "A tourist event" ;
+       rdfs:label "Event" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Price
-tour:Price rdf:type owl:Class ;
-           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                             owl:onProperty tour:inCurrency ;
-                             owl:someValuesFrom tour:Currency
-                           ] ;
-           rdfs:label "Price" .
+:Price rdf:type owl:Class ;
+       rdfs:comment "Price of an activity" ;
+       rdfs:label "Price" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Tour
-tour:Tour rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty tour:tourDifficulty ;
-                            owl:someValuesFrom tour:Currency
-                          ] ;
-          rdfs:label "Tour" .
+:Tour rdf:type owl:Class ;
+      rdfs:comment "The tour of an activity" ;
+      rdfs:label "Tour" .
 
 
 ###  https://www.w3.org/ns/org#Concept
-skos:Concept rdf:type owl:Class ;
-             rdfs:label "Concept" .
+<https://www.w3.org/ns/org#Concept> rdf:type owl:Class ;
+                                    rdfs:comment "Defines hierarchies linked to the difficulty of tourist activity" ;
+                                    rdfs:label "Concept" .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://publications.europa.eu/resource/authority/currency/ADF
-cur:ADF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ADP
-cur:ADP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AED
-cur:AED rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AFA
-cur:AFA rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AFN
-cur:AFN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ALK
-cur:ALK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ALL
-cur:ALL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AMD
-cur:AMD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ANG
-cur:ANG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AOA
-cur:AOA rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AON
-cur:AON rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AOR
-cur:AOR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ARA
-cur:ARA rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ARL
-cur:ARL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ARM
-cur:ARM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ARP
-cur:ARP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ARS
-cur:ARS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ATS
-cur:ATS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AUD
-cur:AUD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AWG
-cur:AWG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AZM
-cur:AZM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/AZN
-cur:AZN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BAM
-cur:BAM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BBD
-cur:BBD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BDT
-cur:BDT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BEF
-cur:BEF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BGJ
-cur:BGJ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BGK
-cur:BGK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BGL
-cur:BGL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BGN
-cur:BGN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BHD
-cur:BHD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BIF
-cur:BIF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BMD
-cur:BMD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BND
-cur:BND rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BOB
-cur:BOB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BOP
-cur:BOP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BOV
-cur:BOV rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRB
-cur:BRB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRC
-cur:BRC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRE
-cur:BRE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRL
-cur:BRL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRN
-cur:BRN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRR
-cur:BRR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BRZ
-cur:BRZ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BSD
-cur:BSD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BTN
-cur:BTN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BWP
-cur:BWP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BYN
-cur:BYN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BYR
-cur:BYR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/BZD
-cur:BZD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CAD
-cur:CAD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CDF
-cur:CDF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CHE
-cur:CHE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CHF
-cur:CHF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CHW
-cur:CHW rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CLE
-cur:CLE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CLF
-cur:CLF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CLP
-cur:CLP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CNY
-cur:CNY rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/COP
-cur:COP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/COU
-cur:COU rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CRC
-cur:CRC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CSJ
-cur:CSJ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CSK
-cur:CSK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CUC
-cur:CUC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CUP
-cur:CUP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CVE
-cur:CVE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CYP
-cur:CYP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/CZK
-cur:CZK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/DDM
-cur:DDM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/DEM
-cur:DEM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/DJF
-cur:DJF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/DKK
-cur:DKK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/DOP
-cur:DOP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/DZD
-cur:DZD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ECS
-cur:ECS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/EEK
-cur:EEK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/EGP
-cur:EGP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ERN
-cur:ERN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ESP
-cur:ESP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ETB
-cur:ETB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/EUR
-cur:EUR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/FIM
-cur:FIM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/FJD
-cur:FJD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/FKP
-cur:FKP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/FRF
-cur:FRF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GBP
-cur:GBP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GEL
-cur:GEL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GHC
-cur:GHC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GHS
-cur:GHS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GIP
-cur:GIP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GMD
-cur:GMD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GNE
-cur:GNE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GNF
-cur:GNF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GQE
-cur:GQE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GRD
-cur:GRD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GTQ
-cur:GTQ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GWP
-cur:GWP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/GYD
-cur:GYD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/HKD
-cur:HKD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/HNL
-cur:HNL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/HRK
-cur:HRK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/HTG
-cur:HTG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/HUF
-cur:HUF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/IDR
-cur:IDR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/IEP
-cur:IEP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ILP
-cur:ILP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ILR
-cur:ILR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ILS
-cur:ILS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/INR
-cur:INR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/IQD
-cur:IQD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/IRR
-cur:IRR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ISJ
-cur:ISJ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ISK
-cur:ISK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ITL
-cur:ITL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/JMD
-cur:JMD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/JOD
-cur:JOD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/JPY
-cur:JPY rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KES
-cur:KES rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KGS
-cur:KGS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KHR
-cur:KHR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KMF
-cur:KMF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KPW
-cur:KPW rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KRW
-cur:KRW rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KWD
-cur:KWD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KYD
-cur:KYD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/KZT
-cur:KZT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LAJ
-cur:LAJ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LAK
-cur:LAK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LBP
-cur:LBP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LKR
-cur:LKR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LRD
-cur:LRD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LSL
-cur:LSL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LTL
-cur:LTL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LUF
-cur:LUF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LVL
-cur:LVL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/LYD
-cur:LYD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MAD
-cur:MAD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MCF
-cur:MCF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MDL
-cur:MDL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MGA
-cur:MGA rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MGF
-cur:MGF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MKD
-cur:MKD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MKN
-cur:MKN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MLF
-cur:MLF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MMK
-cur:MMK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MNT
-cur:MNT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MOP
-cur:MOP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MRO
-cur:MRO rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MRU
-cur:MRU rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MTL
-cur:MTL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MTP
-cur:MTP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MUR
-cur:MUR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MVQ
-cur:MVQ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MVR
-cur:MVR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MWK
-cur:MWK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MXN
-cur:MXN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MXP
-cur:MXP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MXV
-cur:MXV rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MYR
-cur:MYR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/MZN
-cur:MZN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NAD
-cur:NAD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NFD
-cur:NFD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NGN
-cur:NGN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NIO
-cur:NIO rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NLG
-cur:NLG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NOK
-cur:NOK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NPR
-cur:NPR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/NZD
-cur:NZD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/OMR
-cur:OMR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/OP_DATPRO
-cur:OP_DATPRO rdf:type owl:NamedIndividual ,
-                       tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PAB
-cur:PAB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PEH
-cur:PEH rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PEI
-cur:PEI rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PEN
-cur:PEN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PGK
-cur:PGK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PHP
-cur:PHP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PKR
-cur:PKR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PLN
-cur:PLN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PLZ
-cur:PLZ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PTE
-cur:PTE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/PYG
-cur:PYG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/QAR
-cur:QAR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ROL
-cur:ROL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/RON
-cur:RON rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/RSD
-cur:RSD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/RUB
-cur:RUB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/RUR
-cur:RUR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/RWF
-cur:RWF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SAR
-cur:SAR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SBD
-cur:SBD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SCR
-cur:SCR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SDD
-cur:SDD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SDG
-cur:SDG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SEK
-cur:SEK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SGD
-cur:SGD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SHP
-cur:SHP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SIT
-cur:SIT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SKK
-cur:SKK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SLL
-cur:SLL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SML
-cur:SML rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SOS
-cur:SOS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SQS
-cur:SQS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SRD
-cur:SRD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SRG
-cur:SRG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SSP
-cur:SSP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/STD
-cur:STD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/STN
-cur:STN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SUR
-cur:SUR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SVC
-cur:SVC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SYP
-cur:SYP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/SZL
-cur:SZL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/THB
-cur:THB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TJR
-cur:TJR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TJS
-cur:TJS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TMM
-cur:TMM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TMT
-cur:TMT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TND
-cur:TND rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TOP
-cur:TOP rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TPE
-cur:TPE rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TRL
-cur:TRL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TRY
-cur:TRY rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TTD
-cur:TTD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TVD
-cur:TVD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TWD
-cur:TWD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/TZS
-cur:TZS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UAH
-cur:UAH rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UAK
-cur:UAK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UGS
-cur:UGS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UGX
-cur:UGX rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/USD
-cur:USD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/USN
-cur:USN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/USS
-cur:USS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UYI
-cur:UYI rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UYN
-cur:UYN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UYU
-cur:UYU rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UYW
-cur:UYW rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/UZS
-cur:UZS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VAL
-cur:VAL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VEB
-cur:VEB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VED
-cur:VED rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VEF
-cur:VEF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VES
-cur:VES rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VNC
-cur:VNC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VND
-cur:VND rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/VUV
-cur:VUV rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/WST
-cur:WST rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XAF
-cur:XAF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XAG
-cur:XAG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XAU
-cur:XAU rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XBA
-cur:XBA rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XBB
-cur:XBB rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XBC
-cur:XBC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XBD
-cur:XBD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XBT
-cur:XBT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XCD
-cur:XCD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XDR
-cur:XDR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XEU
-cur:XEU rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XOF
-cur:XOF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XPD
-cur:XPD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XPF
-cur:XPF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XPT
-cur:XPT rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XSU
-cur:XSU rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XTS
-cur:XTS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XUA
-cur:XUA rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/XXX
-cur:XXX rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YDD
-cur:YDD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YER
-cur:YER rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUD
-cur:YUD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUF
-cur:YUF rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUG
-cur:YUG rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUM
-cur:YUM rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUN
-cur:YUN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUO
-cur:YUO rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUR
-cur:YUR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/YUS
-cur:YUS rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZAR
-cur:ZAR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZMK
-cur:ZMK rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZMW
-cur:ZMW rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZRN
-cur:ZRN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZRZ
-cur:ZRZ rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZWC
-cur:ZWC rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZWD
-cur:ZWD rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZWL
-cur:ZWL rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZWN
-cur:ZWN rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  http://publications.europa.eu/resource/authority/currency/ZWR
-cur:ZWR rdf:type owl:NamedIndividual ,
-                 tour:Currency .
-
-
-###  https://auroral.iot.linkeddata.es/def/tourism#
-<https://auroral.iot.linkeddata.es/def/tourism#> rdf:type owl:NamedIndividual ;
-                                                 dcterms:description "Ontology code created by Chowlk" ;
-                                                 dcterms:title "The AURORAL Tourism Ontology" .
-
-
 ###  https://auroral.iot.linkeddata.es/def/tourism#Agree
-tour:Agree rdf:type owl:NamedIndividual ,
-                    tour:Emotion .
+:Agree rdf:type owl:NamedIndividual ,
+                :Emotion ;
+       rdfs:label "agree" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Disagree
-tour:Disagree rdf:type owl:NamedIndividual ,
-                       tour:Emotion .
+:Disagree rdf:type owl:NamedIndividual ,
+                   :Emotion ;
+          rdfs:label "disagree" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Easy
-tour:Easy rdf:type owl:NamedIndividual ,
-                   tour:Difficulty .
-
-
-###  https://auroral.iot.linkeddata.es/def/tourism#Euros
-tour:Euros rdf:type owl:NamedIndividual .
+:Easy rdf:type owl:NamedIndividual ,
+               :Difficulty .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Hard
-tour:Hard rdf:type owl:NamedIndividual ,
-                   tour:Difficulty .
+:Hard rdf:type owl:NamedIndividual ,
+               :Difficulty .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Medium
-tour:Medium rdf:type owl:NamedIndividual ,
-                     tour:Difficulty .
+:Medium rdf:type owl:NamedIndividual ,
+                 :Difficulty .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#Neutral
-tour:Neutral rdf:type owl:NamedIndividual ,
-                      tour:Emotion .
-
-
-###  https://auroral.iot.linkeddata.es/def/tourism#PriceActivity1
-tour:PriceActivity1 rdf:type owl:NamedIndividual ,
-                             tour:Price ;
-                    tour:inCurrency tour:Euros ;
-                    tour:amount 10 .
+:Neutral rdf:type owl:NamedIndividual ,
+                  :Emotion ;
+         rdfs:label "neutral" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#VeryEasy
-tour:VeryEasy rdf:type owl:NamedIndividual ,
-                       tour:Difficulty .
+:VeryEasy rdf:type owl:NamedIndividual ,
+                   :Difficulty .
 
 
 ###  https://auroral.iot.linkeddata.es/def/tourism#VeryHard
-tour:VeryHard rdf:type owl:NamedIndividual ,
-                       tour:Difficulty .
+:VeryHard rdf:type owl:NamedIndividual ,
+                   :Difficulty .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+#################################################################
+#    Annotations
+#################################################################
+
+<http://purl.org/dc/elements/1.1/title> rdfs:comment "The title of a tourist activity" ;
+                                        rdfs:label "title" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

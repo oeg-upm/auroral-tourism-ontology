@@ -1,6 +1,6 @@
-<h2 id="crossreference" class="list">Cross-reference for [Ontology Name] classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-This section provides details for each class and property defined by [Ontology Name].
-<div xmlns:extra="https://w3id.org/extra#"
+<h2 id="crossreference" class="list">Cross-reference for The AURORAL Tourism Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by The AURORAL Tourism Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      id="classes">
    <h3 id="classes-headline" class="list">Classes</h3>
@@ -8,10 +8,6 @@ This section provides details for each class and property defined by [Ontology N
       <li>
          <a href="#Activity"
             title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
-      </li>
-      <li>
-         <a href="#ActivityDifficulty"
-            title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
       </li>
       <li>
          <a href="#Channel"
@@ -25,17 +21,39 @@ This section provides details for each class and property defined by [Ontology N
             title="https://auroral.iot.linkeddata.es/def/tourism#Currency">Currency</a>
       </li>
       <li>
+         <a href="#Difficulty"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
+      </li>
+      <li>
+         <a href="#Emotion"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
+      </li>
+      <li>
+         <a href="#Event"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Event">Event</a>
+      </li>
+      <li>
          <a href="#http://xmlns.com/foaf/0.1/Image" title="http://xmlns.com/foaf/0.1/Image">Image</a>
       </li>
       <li>
-         <a href="#http://purl.org/dc/terms/LinguisticSystem" title="http://purl.org/dc/terms/LinguisticSystem">Linguistic System</a>
+         <a href="#http://lexvo.org/ontology#Language" title="http://lexvo.org/ontology#Language">Language</a>
       </li>
       <li>
          <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#Point" title="http://www.w3.org/2003/01/geo/wgs84_pos#Point">Point</a>
       </li>
       <li>
+         <a href="#http://www.opengis.net/ont/sf#Polygon" title="http://www.opengis.net/ont/sf#Polygon">Polygon</a>
+      </li>
+      <li>
          <a href="#Price"
             title="https://auroral.iot.linkeddata.es/def/tourism#Price">Price</a>
+      </li>
+      <li>
+         <a href="#Tour"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Tour">Tour</a>
+      </li>
+      <li>
+         <a href="#https://auroral.iot.linkeddata.es/def/core#User" title="https://auroral.iot.linkeddata.es/def/core#User">User</a>
       </li>
    </ul>
    <div class="entity" id="Activity">
@@ -45,18 +63,28 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Activity</p>
+      <div class="comment">
+         <span class="markdown">It is defined as a tourist activity.</span>
+      </div>
       <dl class="description">
-         <dt>has super-classes</dt>
-         <dd/>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#coverImage"
+            <a href="#activityLongDescriptionNotSearched"
+               title="https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched">activity long description not searched</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#activityWebURL"
+               title="https://auroral.iot.linkeddata.es/def/tourism#activityWebURL">activity web u r l</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#coverImage"
                title="https://auroral.iot.linkeddata.es/def/tourism#coverImage">cover image</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#endDate"
+               title="https://auroral.iot.linkeddata.es/def/tourism#endDate">end date</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#externalBookingURL"
                title="https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL">external booking u r l</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasStartingPrice"
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasEvent"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasEvent">has event</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasStartingPrice"
                title="https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice">has starting price</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasTour"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasTour">has tour</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hiddenDescription"
                title="https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription">hidden description</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#identifier"
@@ -67,21 +95,99 @@ This section provides details for each class and property defined by [Ontology N
                title="https://auroral.iot.linkeddata.es/def/tourism#longDescription">long description</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#mapPoint"
                title="https://auroral.iot.linkeddata.es/def/tourism#mapPoint">map point</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#postedToChannel"
+            <sup class="type-op" title="object property">op</sup>, <a href="#mapPointCategory"
+               title="https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory">map point category</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#postedToChannel"
                title="https://auroral.iot.linkeddata.es/def/tourism#postedToChannel">posted to channel</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#shortDescription"
                title="https://auroral.iot.linkeddata.es/def/tourism#shortDescription">short description</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#startDate"
+               title="https://auroral.iot.linkeddata.es/def/tourism#startDate">start date</a>
             <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isAbout"
+               title="https://auroral.iot.linkeddata.es/def/tourism#isAbout">is about</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="ActivityDifficulty">
-      <h3>Activity Difficulty<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="Channel">
+      <h3>Channel<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty</p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Channel</p>
+      <div class="comment">
+         <span class="markdown">Each activity is posted to a channel</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#channelName"
+               title="https://auroral.iot.linkeddata.es/def/tourism#channelName">channel name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#idChannel"
+               title="https://auroral.iot.linkeddata.es/def/tourism#idChannel">id channel</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#postedToChannel"
+               title="https://auroral.iot.linkeddata.es/def/tourism#postedToChannel">posted to channel</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://www.w3.org/ns/org#Concept">
+      <h3>Concept<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://www.w3.org/ns/org#Concept</p>
+      <div class="comment">
+         <span class="markdown">Defines hierarchies linked to the difficulty of tourist activity</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Difficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Currency">
+      <h3>Currency<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Currency</p>
+      <div class="comment">
+         <span class="markdown">The currency of a Price (euros, dollars, dinars, etc. )</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#inCurrency"
+               title="https://auroral.iot.linkeddata.es/def/tourism#inCurrency">in currency</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Difficulty">
+      <h3>Difficulty<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Difficulty</p>
+      <div class="comment">
+         <span class="markdown">Defines hierarchies linked to the difficulty of tourist activity</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -90,8 +196,8 @@ This section provides details for each class and property defined by [Ontology N
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#mapPoint"
-               title="https://auroral.iot.linkeddata.es/def/tourism#mapPoint">map point</a>
+            <a href="#hasDifficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty">has difficulty</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>has members</dt>
@@ -110,56 +216,64 @@ This section provides details for each class and property defined by [Ontology N
          </dd>
       </dl>
    </div>
-   <div class="entity" id="Channel">
-      <h3>Channel<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="Emotion">
+      <h3>Emotion<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Channel</p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Emotion</p>
+      <div class="comment">
+         <span class="markdown">The emotion related to a tourist activity</span>
+      </div>
       <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <a href="#channelName"
-               title="https://auroral.iot.linkeddata.es/def/tourism#channelName">channel name</a>
+            <a href="#isAbout"
+               title="https://auroral.iot.linkeddata.es/def/tourism#isAbout">is about</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasEmotion"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasEmotion">has emotion</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#Agree"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Agree">agree</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Disagree"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Disagree">disagree</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Neutral"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Neutral">neutral</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Event">
+      <h3>Event<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Event</p>
+      <div class="comment">
+         <span class="markdown">A tourist event</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#end"
+               title="https://auroral.iot.linkeddata.es/def/tourism#end">end</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#start"
+               title="https://auroral.iot.linkeddata.es/def/tourism#start">start</a>
             <sup class="type-dp" title="data property">dp</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#postedToChannel"
-               title="https://auroral.iot.linkeddata.es/def/tourism#postedToChannel">posted to channel</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="https://www.w3.org/ns/org#Concept">
-      <h3>Concept<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://www.w3.org/ns/org#Concept</p>
-      <dl class="description">
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#ActivityDifficulty"
-               title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="Currency">
-      <h3>Currency<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Currency</p>
-      <dl class="description">
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#inCurrency"
-               title="https://auroral.iot.linkeddata.es/def/tourism#inCurrency">in currency</a>
+            <a href="#hasEvent"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasEvent">has event</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -171,6 +285,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://xmlns.com/foaf/0.1/Image</p>
+      <div class="comment">
+         <span class="markdown">An image related to a tourist Activity</span>
+      </div>
       <dl class="description">
          <dt>is in range of</dt>
          <dd>
@@ -182,13 +299,16 @@ This section provides details for each class and property defined by [Ontology N
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/LinguisticSystem">
-      <h3>Linguistic System<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="http://lexvo.org/ontology#Language">
+      <h3>Language<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/LinguisticSystem</p>
+         <strong>IRI:</strong> http://lexvo.org/ontology#Language</p>
+      <div class="comment">
+         <span class="markdown">The language of the tourist activity</span>
+      </div>
    </div>
    <div class="entity" id="http://www.w3.org/2003/01/geo/wgs84_pos#Point">
       <h3>Point<sup class="type-c" title="class">c</sup>
@@ -197,6 +317,28 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2003/01/geo/wgs84_pos#Point</p>
+      <div class="comment">
+         <span class="markdown">The geospatial coordination of the tourist activity place</span>
+      </div>
+   </div>
+   <div class="entity" id="http://www.opengis.net/ont/sf#Polygon">
+      <h3>Polygon<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.opengis.net/ont/sf#Polygon</p>
+      <div class="comment">
+         <span class="markdown">The polygon coordination of the tourist activity</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasGeoPolygon"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon">has geo polygon</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
    </div>
    <div class="entity" id="Price">
       <h3>Price<sup class="type-c" title="class">c</sup>
@@ -205,6 +347,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Price</p>
+      <div class="comment">
+         <span class="markdown">Price of an activity</span>
+      </div>
       <dl class="description">
          <dt>is in domain of</dt>
          <dd>
@@ -222,7 +367,45 @@ This section provides details for each class and property defined by [Ontology N
          </dd>
       </dl>
    </div>
-</div><div xmlns:extra="https://w3id.org/extra#"
+   <div class="entity" id="Tour">
+      <h3>Tour<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Tour</p>
+      <div class="comment">
+         <span class="markdown">The tour of an activity</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasTour"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasTour">has tour</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://auroral.iot.linkeddata.es/def/core#User">
+      <h3>User<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/core#User</p>
+      <div class="comment">
+         <span class="markdown">The person concerned for the tourist activity</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasEmotion"
+               title="https://auroral.iot.linkeddata.es/def/tourism#hasEmotion">has emotion</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      id="objectproperties">
    <h3 id="properties" class="list">Object Properties</h3>
@@ -235,15 +418,39 @@ This section provides details for each class and property defined by [Ontology N
          <a href="#http://xmlns.com/foaf/0.1/depiction" title="http://xmlns.com/foaf/0.1/depiction">depiction</a>
       </li>
       <li>
+         <a href="#hasDifficulty"
+            title="https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty">has difficulty</a>
+      </li>
+      <li>
+         <a href="#hasEmotion"
+            title="https://auroral.iot.linkeddata.es/def/tourism#hasEmotion">has emotion</a>
+      </li>
+      <li>
+         <a href="#hasEvent"
+            title="https://auroral.iot.linkeddata.es/def/tourism#hasEvent">has event</a>
+      </li>
+      <li>
+         <a href="#hasGeoPolygon"
+            title="https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon">has geo polygon</a>
+      </li>
+      <li>
          <a href="#hasStartingPrice"
             title="https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice">has starting price</a>
+      </li>
+      <li>
+         <a href="#hasTour"
+            title="https://auroral.iot.linkeddata.es/def/tourism#hasTour">has tour</a>
       </li>
       <li>
          <a href="#inCurrency"
             title="https://auroral.iot.linkeddata.es/def/tourism#inCurrency">in currency</a>
       </li>
       <li>
-         <a href="#http://purl.org/dc/terms/language" title="http://purl.org/dc/terms/language">language</a>
+         <a href="#isAbout"
+            title="https://auroral.iot.linkeddata.es/def/tourism#isAbout">is about</a>
+      </li>
+      <li>
+         <a href="#http://lexvo.org/ontology#language" title="http://lexvo.org/ontology#language">language</a>
       </li>
       <li>
          <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#location" title="http://www.w3.org/2003/01/geo/wgs84_pos#location">location</a>
@@ -264,6 +471,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#coverImage</p>
+      <div class="comment">
+         <span class="markdown">a relationship between the activity and the images that it covers</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -287,6 +497,103 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://xmlns.com/foaf/0.1/depiction</p>
+      <div class="comment">
+         <span class="markdown">relationship between the activity and its images</span>
+      </div>
+   </div>
+   <div class="entity" id="hasDifficulty">
+      <h3>has difficulty<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty</p>
+      <div class="comment">
+         <span class="markdown">Relationship between the activity or a tour and their difficulties</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Difficulty"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasEmotion">
+      <h3>has emotion<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hasEmotion</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the user and his emotions about a tourist activity</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://auroral.iot.linkeddata.es/def/core#User" title="https://auroral.iot.linkeddata.es/def/core#User">User</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Emotion"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasEvent">
+      <h3>has event<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hasEvent</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and its events</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Event"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Event">Event</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasGeoPolygon">
+      <h3>has geo polygon<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon</p>
+      <div class="comment">
+         <span class="markdown">Relationship between the activity and the tour with the geopolygon position</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://www.opengis.net/ont/sf#Polygon" title="http://www.opengis.net/ont/sf#Polygon">Polygon</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
    </div>
    <div class="entity" id="hasStartingPrice">
       <h3>has starting price<sup class="type-op" title="object property">op</sup>
@@ -295,6 +602,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and its price</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -312,6 +622,33 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
+   <div class="entity" id="hasTour">
+      <h3>has tour<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hasTour</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and its related tours</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Tour"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Tour">Tour</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="inCurrency">
       <h3>in currency<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -319,6 +656,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#inCurrency</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the price and its currency</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -336,13 +676,43 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/language">
+   <div class="entity" id="isAbout">
+      <h3>is about<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#isAbout</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and the emotion about it</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Emotion"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://lexvo.org/ontology#language">
       <h3>language<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/language</p>
+         <strong>IRI:</strong> http://lexvo.org/ontology#language</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and its language</span>
+      </div>
    </div>
    <div class="entity" id="http://www.w3.org/2003/01/geo/wgs84_pos#location">
       <h3>location<sup class="type-op" title="object property">op</sup>
@@ -351,6 +721,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2003/01/geo/wgs84_pos#location</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and its location point</span>
+      </div>
    </div>
    <div class="entity" id="mapPoint">
       <h3>map point<sup class="type-op" title="object property">op</sup>
@@ -359,6 +732,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#mapPoint</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the Activity and its image</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -372,11 +748,6 @@ This section provides details for each class and property defined by [Ontology N
                <a href="#http://xmlns.com/foaf/0.1/Image" title="http://xmlns.com/foaf/0.1/Image">Image</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
-            <dd>
-               <a href="#ActivityDifficulty"
-                  title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
          </dl>
       </div>
    </div>
@@ -387,6 +758,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#postedToChannel</p>
+      <div class="comment">
+         <span class="markdown">A relationship between the activity and its channel</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -404,11 +778,19 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
-</div><div xmlns:extra="https://w3id.org/extra#"
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      id="dataproperties">
    <h3 id="dataproperties-headline" class="list">Data Properties</h3>
    <ul class="hlist">
+      <li>
+         <a href="#activityLongDescriptionNotSearched"
+            title="https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched">activity long description not searched</a>
+      </li>
+      <li>
+         <a href="#activityWebURL"
+            title="https://auroral.iot.linkeddata.es/def/tourism#activityWebURL">activity web u r l</a>
+      </li>
       <li>
          <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#alt" title="http://www.w3.org/2003/01/geo/wgs84_pos#alt">alt</a>
       </li>
@@ -421,7 +803,11 @@ This section provides details for each class and property defined by [Ontology N
             title="https://auroral.iot.linkeddata.es/def/tourism#channelName">channel name</a>
       </li>
       <li>
-         <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a>
+         <a href="#http://purl.org/dc/elements/1.1/description" title="http://purl.org/dc/elements/1.1/description">description</a>
+      </li>
+      <li>
+         <a href="#end"
+            title="https://auroral.iot.linkeddata.es/def/tourism#end">end</a>
       </li>
       <li>
          <a href="#endDate"
@@ -436,6 +822,10 @@ This section provides details for each class and property defined by [Ontology N
             title="https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription">hidden description</a>
       </li>
       <li>
+         <a href="#idChannel"
+            title="https://auroral.iot.linkeddata.es/def/tourism#idChannel">id channel</a>
+      </li>
+      <li>
          <a href="#identifier"
             title="https://auroral.iot.linkeddata.es/def/tourism#identifier">identifier</a>
       </li>
@@ -444,7 +834,7 @@ This section provides details for each class and property defined by [Ontology N
             title="https://auroral.iot.linkeddata.es/def/tourism#isBookable">is bookable</a>
       </li>
       <li>
-         <a href="#http://purl.org/dc/terms/lastModified" title="http://purl.org/dc/terms/lastModified">last modified</a>
+         <a href="#http://purl.org/dc/elements/1.1/lastModified" title="http://purl.org/dc/elements/1.1/lastModified">last modified</a>
       </li>
       <li>
          <a href="#http://www.w3.org/2003/01/geo/wgs84_pos#lat" title="http://www.w3.org/2003/01/geo/wgs84_pos#lat">lat</a>
@@ -457,20 +847,79 @@ This section provides details for each class and property defined by [Ontology N
             title="https://auroral.iot.linkeddata.es/def/tourism#longDescription">long description</a>
       </li>
       <li>
-         <a href="#http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">rights</a>
+         <a href="#mapPointCategory"
+            title="https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory">map point category</a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/elements/1.1/rights" title="http://purl.org/dc/elements/1.1/rights">rights</a>
       </li>
       <li>
          <a href="#shortDescription"
             title="https://auroral.iot.linkeddata.es/def/tourism#shortDescription">short description</a>
       </li>
       <li>
+         <a href="#start"
+            title="https://auroral.iot.linkeddata.es/def/tourism#start">start</a>
+      </li>
+      <li>
          <a href="#startDate"
             title="https://auroral.iot.linkeddata.es/def/tourism#startDate">start date</a>
       </li>
-      <li>
-         <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">title</a>
-      </li>
    </ul>
+   <div class="entity" id="activityLongDescriptionNotSearched">
+      <h3>activity long description not searched<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched</p>
+      <div class="comment">
+         <span class="markdown">A long description about the tourist activity</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="activityWebURL">
+      <h3>activity web u r l<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#activityWebURL</p>
+      <div class="comment">
+         <span class="markdown">The url of a tourist activity</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#anyURI"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#anyURI">anyURI</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="http://www.w3.org/2003/01/geo/wgs84_pos#alt">
       <h3>alt<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -478,6 +927,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2003/01/geo/wgs84_pos#alt</p>
+      <div class="comment">
+         <span class="markdown">Altitude of a given tourist activity</span>
+      </div>
    </div>
    <div class="entity" id="amount">
       <h3>amount<sup class="type-dp" title="data property">dp</sup>
@@ -486,6 +938,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#amount</p>
+      <div class="comment">
+         <span class="markdown">The amount of the price of a toursit activity</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -493,6 +948,12 @@ This section provides details for each class and property defined by [Ontology N
                <a href="#Price"
                   title="https://auroral.iot.linkeddata.es/def/tourism#Price">Price</a>
                <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#float"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#float">float</a>
             </dd>
          </dl>
       </div>
@@ -504,6 +965,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#channelName</p>
+      <div class="comment">
+         <span class="markdown">The channel name where the tourist activity is posted</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -521,13 +985,108 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/description">
+   <div class="entity" id="http://purl.org/dc/elements/1.1/description">
       <h3>description<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+         <strong>IRI:</strong> http://purl.org/dc/elements/1.1/description</p>
+      <div class="comment">
+         <span class="markdown">The description of an activity</span>
+      </div>
+   </div>
+   <div class="entity" id="end">
+      <h3>end<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#end</p>
+      <div class="comment">
+         <span class="markdown">The end time of a given tourist event</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Event"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Event">Event</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#dateTime"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#dateTime">date time</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="endDate">
+      <h3>end date<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#endDate</p>
+      <div class="comment">
+         <span class="markdown">The end time of a Tourist activity</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#dateTime"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#dateTime">date time</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="externalBookingURL">
+      <h3>external booking u r l<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL</p>
+      <div class="comment">
+         <span class="markdown">The booking URI of a tourist activity</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#anyURI"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#anyURI">anyURI</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hiddenDescription">
+      <h3>hidden description<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription</p>
+      <div class="comment">
+         <span class="markdown">The hidden decsription of a tourist activity</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -545,55 +1104,22 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
-   <div class="entity" id="endDate">
-      <h3>end date<sup class="type-dp" title="data property">dp</sup>
+   <div class="entity" id="idChannel">
+      <h3>id channel<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#endDate</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#date"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#date">date</a>
-            </dd>
-         </dl>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#idChannel</p>
+      <div class="comment">
+         <span class="markdown">The identifier of a Channel</span>
       </div>
-   </div>
-   <div class="entity" id="externalBookingURL">
-      <h3>external booking u r l<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Activity"
-                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hiddenDescription">
-      <h3>hidden description<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription</p>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#Activity"
-                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <a href="#Channel"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Channel">Channel</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -612,6 +1138,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#identifier</p>
+      <div class="comment">
+         <span class="markdown">The identifier of the tourist activity</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -636,6 +1165,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#isBookable</p>
+      <div class="comment">
+         <span class="markdown">Determines weither the tourist activity is bookable or not</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -653,13 +1185,16 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/lastModified">
+   <div class="entity" id="http://purl.org/dc/elements/1.1/lastModified">
       <h3>last modified<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/lastModified</p>
+         <strong>IRI:</strong> http://purl.org/dc/elements/1.1/lastModified</p>
+      <div class="comment">
+         <span class="markdown">The date of the last modification of a given entity</span>
+      </div>
    </div>
    <div class="entity" id="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
       <h3>lat<sup class="type-dp" title="data property">dp</sup>
@@ -668,6 +1203,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2003/01/geo/wgs84_pos#lat</p>
+      <div class="comment">
+         <span class="markdown">Latitude of a given tourist activity</span>
+      </div>
    </div>
    <div class="entity" id="http://www.w3.org/2003/01/geo/wgs84_pos#long">
       <h3>long<sup class="type-dp" title="data property">dp</sup>
@@ -676,6 +1214,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2003/01/geo/wgs84_pos#long</p>
+      <div class="comment">
+         <span class="markdown">Longitude of a given tourist activity</span>
+      </div>
    </div>
    <div class="entity" id="longDescription">
       <h3>long description<sup class="type-dp" title="data property">dp</sup>
@@ -684,6 +1225,9 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#longDescription</p>
+      <div class="comment">
+         <span class="markdown">Long description about the tourist activity</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -701,21 +1245,16 @@ This section provides details for each class and property defined by [Ontology N
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/rights">
-      <h3>rights<sup class="type-dp" title="data property">dp</sup>
+   <div class="entity" id="mapPointCategory">
+      <h3>map point category<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/rights</p>
-   </div>
-   <div class="entity" id="shortDescription">
-      <h3>short description<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#shortDescription</p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory</p>
+      <div class="comment">
+         <span class="markdown">The map point of a touris activity</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -729,6 +1268,71 @@ This section provides details for each class and property defined by [Ontology N
                <a href="http://www.w3.org/2001/XMLSchema#string"
                   target="_blank"
                   title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://purl.org/dc/elements/1.1/rights">
+      <h3>rights<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/elements/1.1/rights</p>
+      <div class="comment">
+         <span class="markdown">The rigths related to a tourist activity</span>
+      </div>
+   </div>
+   <div class="entity" id="shortDescription">
+      <h3>short description<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#shortDescription</p>
+      <div class="comment">
+         <span class="markdown">A short decsription about the tourist activity</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#string"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="start">
+      <h3>start<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#start</p>
+      <div class="comment">
+         <span class="markdown">The start time of an  event</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Event"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Event">Event</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2001/XMLSchema#dateTime"
+                  target="_blank"
+                  title="http://www.w3.org/2001/XMLSchema#dateTime">date time</a>
             </dd>
          </dl>
       </div>
@@ -740,34 +1344,38 @@ This section provides details for each class and property defined by [Ontology N
       </h3>
       <p>
          <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#startDate</p>
+      <div class="comment">
+         <span class="markdown">The start date of a tourist activity</span>
+      </div>
       <div class="description">
          <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Activity"
+                  title="https://auroral.iot.linkeddata.es/def/tourism#Activity">Activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#date"
+               <a href="http://www.w3.org/2001/XMLSchema#dateTime"
                   target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#date">date</a>
+                  title="http://www.w3.org/2001/XMLSchema#dateTime">date time</a>
             </dd>
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/title">
-      <h3>title<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/title</p>
-   </div>
-</div><div xmlns:extra="https://w3id.org/extra#"
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      id="namedindividuals">
    <h3 id="namedindividuals" class="list">Named Individuals</h3>
    <ul class="hlist">
       <li>
-         <a href="#" title="https://auroral.iot.linkeddata.es/def/tourism#">
-            <span></span>
-         </a>
+         <a href="#Agree"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Agree">agree</a>
+      </li>
+      <li>
+         <a href="#Disagree"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Disagree">disagree</a>
       </li>
       <li>
          <a href="#Easy"
@@ -788,6 +1396,10 @@ This section provides details for each class and property defined by [Ontology N
          </a>
       </li>
       <li>
+         <a href="#Neutral"
+            title="https://auroral.iot.linkeddata.es/def/tourism#Neutral">neutral</a>
+      </li>
+      <li>
          <a href="#VeryEasy"
             title="https://auroral.iot.linkeddata.es/def/tourism#VeryEasy">
             <span>very easy</span>
@@ -800,24 +1412,35 @@ This section provides details for each class and property defined by [Ontology N
          </a>
       </li>
    </ul>
-   <div class="entity" id="">
-      <h3>:<sup class="type-ni" title="named individual">ni</sup>
+   <div class="entity" id="Agree">
+      <h3>agree<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#</p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Agree</p>
       <dl class="description">
-         <dt>has facts</dt>
+         <dt>belongs to</dt>
          <dd>
-            <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a>
-            <sup class="type-dp" title="data property">dp</sup> 
-            <span class="literal">"Ontology code created by Chowlk"</span>
+            <a href="#Emotion"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Disagree">
+      <h3>disagree<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Disagree</p>
+      <dl class="description">
+         <dt>belongs to</dt>
          <dd>
-            <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">title</a>
-            <sup class="type-dp" title="data property">dp</sup> 
-            <span class="literal">"The AURORAL Tourism Ontology"</span>
+            <a href="#Emotion"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -831,8 +1454,8 @@ This section provides details for each class and property defined by [Ontology N
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#ActivityDifficulty"
-               title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
+            <a href="#Difficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -847,8 +1470,8 @@ This section provides details for each class and property defined by [Ontology N
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#ActivityDifficulty"
-               title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
+            <a href="#Difficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -863,8 +1486,24 @@ This section provides details for each class and property defined by [Ontology N
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#ActivityDifficulty"
-               title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
+            <a href="#Difficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Neutral">
+      <h3>neutral<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://auroral.iot.linkeddata.es/def/tourism#Neutral</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#Emotion"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Emotion">Emotion</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -879,8 +1518,8 @@ This section provides details for each class and property defined by [Ontology N
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#ActivityDifficulty"
-               title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
+            <a href="#Difficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -895,12 +1534,17 @@ This section provides details for each class and property defined by [Ontology N
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <a href="#ActivityDifficulty"
-               title="https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty">Activity Difficulty</a>
+            <a href="#Difficulty"
+               title="https://auroral.iot.linkeddata.es/def/tourism#Difficulty">Difficulty</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="rules">
+   <h3 class="list" id="rule">Rules</h3>
+   <ul class="hlist"/>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <div   class="entity">

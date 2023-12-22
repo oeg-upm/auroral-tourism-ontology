@@ -1,9 +1,13 @@
 <https://auroral.iot.linkeddata.es/def/tourism#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/creator> "Andrea Cimmino" .
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/creator> "Juan Cano" .
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/creator> "María Poveda-Villalón" .
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/creator> "Raúl Garcia-Castro" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/elements/1.1/creator> "Ahlem Rhayem" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/elements/1.1/creator> "Andrea Cimmino" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/elements/1.1/creator> "Juan Cano" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/elements/1.1/creator> "María Poveda-Villalón" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/elements/1.1/creator> "Raúl Garcia-Castro" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/elements/1.1/title> "The AURORAL Tourism Ontology" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> .
 <https://auroral.iot.linkeddata.es/def/tourism#> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.1" .
+<https://auroral.iot.linkeddata.es/def/tourism#> <https://w3id.org/mod#createdWith> <https://chowlk.linkeddata.es/> .
 # 
 # 
 # #################################################################
@@ -13,20 +17,20 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# #################################################################
-# #
-# #    Datatypes
-# #
-# #################################################################
+# http://www.w3.org/2002/07/owl#versionInfo
+<http://www.w3.org/2002/07/owl#versionInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# 
-# http://www.w3.org/2001/XMLSchema#date
-<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# https://w3id.org/mod#createdWith
+<https://w3id.org/mod#createdWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -37,47 +41,94 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/terms/language
-<http://purl.org/dc/terms/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://purl.org/dc/terms/language> <http://www.w3.org/2000/01/rdf-schema#label> "language" .
+# http://lexvo.org/ontology#language
+<http://lexvo.org/ontology#language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://lexvo.org/ontology#language> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and its language" .
+<http://lexvo.org/ontology#language> <http://www.w3.org/2000/01/rdf-schema#label> "language" .
 # 
 # http://www.w3.org/2003/01/geo/wgs84_pos#location
 <http://www.w3.org/2003/01/geo/wgs84_pos#location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and its location point" .
 <http://www.w3.org/2003/01/geo/wgs84_pos#location> <http://www.w3.org/2000/01/rdf-schema#label> "location" .
 # 
 # http://xmlns.com/foaf/0.1/depiction
 <http://xmlns.com/foaf/0.1/depiction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://xmlns.com/foaf/0.1/depiction> <http://www.w3.org/2000/01/rdf-schema#comment> "relationship between the activity and its images" .
 <http://xmlns.com/foaf/0.1/depiction> <http://www.w3.org/2000/01/rdf-schema#label> "depiction" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#coverImage
 <https://auroral.iot.linkeddata.es/def/tourism#coverImage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#coverImage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#coverImage> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Image> .
+<https://auroral.iot.linkeddata.es/def/tourism#coverImage> <http://www.w3.org/2000/01/rdf-schema#comment> "a relationship between the activity and the images that it covers" .
 <https://auroral.iot.linkeddata.es/def/tourism#coverImage> <http://www.w3.org/2000/01/rdf-schema#label> "cover image" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty
+<https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Difficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between the activity or a tour and their difficulties" .
+<https://auroral.iot.linkeddata.es/def/tourism#hasDifficulty> <http://www.w3.org/2000/01/rdf-schema#label> "has difficulty" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#hasEmotion
+<https://auroral.iot.linkeddata.es/def/tourism#hasEmotion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEmotion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/core#User> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEmotion> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Emotion> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEmotion> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the user and his emotions about a tourist activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEmotion> <http://www.w3.org/2000/01/rdf-schema#label> "has emotion" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#hasEvent
+<https://auroral.iot.linkeddata.es/def/tourism#hasEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Event> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and its events" .
+<https://auroral.iot.linkeddata.es/def/tourism#hasEvent> <http://www.w3.org/2000/01/rdf-schema#label> "has event" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon
+<https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.opengis.net/ont/sf#Polygon> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between the activity and the tour with the geopolygon position" .
+<https://auroral.iot.linkeddata.es/def/tourism#hasGeoPolygon> <http://www.w3.org/2000/01/rdf-schema#label> "has geo polygon" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice
 <https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Price> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and its price" .
 <https://auroral.iot.linkeddata.es/def/tourism#hasStartingPrice> <http://www.w3.org/2000/01/rdf-schema#label> "has starting price" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#hasTour
+<https://auroral.iot.linkeddata.es/def/tourism#hasTour> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasTour> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasTour> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Tour> .
+<https://auroral.iot.linkeddata.es/def/tourism#hasTour> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and its related tours" .
+<https://auroral.iot.linkeddata.es/def/tourism#hasTour> <http://www.w3.org/2000/01/rdf-schema#label> "has tour" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#inCurrency
 <https://auroral.iot.linkeddata.es/def/tourism#inCurrency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#inCurrency> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Price> .
 <https://auroral.iot.linkeddata.es/def/tourism#inCurrency> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Currency> .
+<https://auroral.iot.linkeddata.es/def/tourism#inCurrency> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the price and its currency" .
 <https://auroral.iot.linkeddata.es/def/tourism#inCurrency> <http://www.w3.org/2000/01/rdf-schema#label> "in currency" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#isAbout
+<https://auroral.iot.linkeddata.es/def/tourism#isAbout> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#isAbout> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Emotion> .
+<https://auroral.iot.linkeddata.es/def/tourism#isAbout> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#isAbout> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and the emotion about it" .
+<https://auroral.iot.linkeddata.es/def/tourism#isAbout> <http://www.w3.org/2000/01/rdf-schema#label> "is about" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#mapPoint
 <https://auroral.iot.linkeddata.es/def/tourism#mapPoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#mapPoint> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#mapPoint> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Image> .
-<https://auroral.iot.linkeddata.es/def/tourism#mapPoint> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#mapPoint> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the Activity and its image" .
 <https://auroral.iot.linkeddata.es/def/tourism#mapPoint> <http://www.w3.org/2000/01/rdf-schema#label> "map point" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#postedToChannel
 <https://auroral.iot.linkeddata.es/def/tourism#postedToChannel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#postedToChannel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#postedToChannel> <http://www.w3.org/2000/01/rdf-schema#range> <https://auroral.iot.linkeddata.es/def/tourism#Channel> .
+<https://auroral.iot.linkeddata.es/def/tourism#postedToChannel> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between the activity and its channel" .
 <https://auroral.iot.linkeddata.es/def/tourism#postedToChannel> <http://www.w3.org/2000/01/rdf-schema#label> "posted to channel" .
 # 
 # 
@@ -89,90 +140,149 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
-<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#label> "description" .
+# http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/2000/01/rdf-schema#comment> "The description of an activity" .
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/2000/01/rdf-schema#label> "description" .
 # 
-# http://purl.org/dc/terms/lastModified
-<http://purl.org/dc/terms/lastModified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://purl.org/dc/terms/lastModified> <http://www.w3.org/2000/01/rdf-schema#label> "last modified" .
+# http://purl.org/dc/elements/1.1/lastModified
+<http://purl.org/dc/elements/1.1/lastModified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/elements/1.1/lastModified> <http://www.w3.org/2000/01/rdf-schema#comment> "The date of the last modification of a given entity" .
+<http://purl.org/dc/elements/1.1/lastModified> <http://www.w3.org/2000/01/rdf-schema#label> "last modified" .
 # 
-# http://purl.org/dc/terms/rights
-<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://purl.org/dc/terms/rights> <http://www.w3.org/2000/01/rdf-schema#label> "rights" .
+# http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/elements/1.1/rights> <http://www.w3.org/2000/01/rdf-schema#comment> "The rigths related to a tourist activity" .
+<http://purl.org/dc/elements/1.1/rights> <http://www.w3.org/2000/01/rdf-schema#label> "rights" .
 # 
-# http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://purl.org/dc/terms/title> <http://www.w3.org/2000/01/rdf-schema#label> "title" .
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
 # http://www.w3.org/2003/01/geo/wgs84_pos#alt
 <http://www.w3.org/2003/01/geo/wgs84_pos#alt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#alt> <http://www.w3.org/2000/01/rdf-schema#comment> "Altitude of a given tourist activity" .
 <http://www.w3.org/2003/01/geo/wgs84_pos#alt> <http://www.w3.org/2000/01/rdf-schema#label> "alt" .
 # 
 # http://www.w3.org/2003/01/geo/wgs84_pos#lat
 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> <http://www.w3.org/2000/01/rdf-schema#comment> "Latitude of a given tourist activity" .
 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> <http://www.w3.org/2000/01/rdf-schema#label> "lat" .
 # 
 # http://www.w3.org/2003/01/geo/wgs84_pos#long
 <http://www.w3.org/2003/01/geo/wgs84_pos#long> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> <http://www.w3.org/2000/01/rdf-schema#comment> "Longitude of a given tourist activity" .
 <http://www.w3.org/2003/01/geo/wgs84_pos#long> <http://www.w3.org/2000/01/rdf-schema#label> "long" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched
+<https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched> <http://www.w3.org/2000/01/rdf-schema#comment> "A long description about the tourist activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#activityLongDescriptionNotSearched> <http://www.w3.org/2000/01/rdf-schema#label> "activity long description not searched" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#activityWebURL
+<https://auroral.iot.linkeddata.es/def/tourism#activityWebURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#activityWebURL> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#activityWebURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://auroral.iot.linkeddata.es/def/tourism#activityWebURL> <http://www.w3.org/2000/01/rdf-schema#comment> "The url of a tourist activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#activityWebURL> <http://www.w3.org/2000/01/rdf-schema#label> "activity web u r l" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#amount
 <https://auroral.iot.linkeddata.es/def/tourism#amount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#amount> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Price> .
+<https://auroral.iot.linkeddata.es/def/tourism#amount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://auroral.iot.linkeddata.es/def/tourism#amount> <http://www.w3.org/2000/01/rdf-schema#comment> "The amount of the price of a toursit activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#amount> <http://www.w3.org/2000/01/rdf-schema#label> "amount" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#channelName
 <https://auroral.iot.linkeddata.es/def/tourism#channelName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#channelName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Channel> .
 <https://auroral.iot.linkeddata.es/def/tourism#channelName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#channelName> <http://www.w3.org/2000/01/rdf-schema#comment> "The channel name where the tourist activity is posted" .
 <https://auroral.iot.linkeddata.es/def/tourism#channelName> <http://www.w3.org/2000/01/rdf-schema#label> "channel name" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#end
+<https://auroral.iot.linkeddata.es/def/tourism#end> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#end> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Event> .
+<https://auroral.iot.linkeddata.es/def/tourism#end> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://auroral.iot.linkeddata.es/def/tourism#end> <http://www.w3.org/2000/01/rdf-schema#comment> "The end time of a given tourist event" .
+<https://auroral.iot.linkeddata.es/def/tourism#end> <http://www.w3.org/2000/01/rdf-schema#label> "end" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#endDate
 <https://auroral.iot.linkeddata.es/def/tourism#endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://auroral.iot.linkeddata.es/def/tourism#endDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://auroral.iot.linkeddata.es/def/tourism#endDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#endDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://auroral.iot.linkeddata.es/def/tourism#endDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The end time of a Tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#endDate> <http://www.w3.org/2000/01/rdf-schema#label> "end date" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL
 <https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL> <http://www.w3.org/2000/01/rdf-schema#comment> "The booking URI of a tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#externalBookingURL> <http://www.w3.org/2000/01/rdf-schema#label> "external booking u r l" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription
 <https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "The hidden decsription of a tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#hiddenDescription> <http://www.w3.org/2000/01/rdf-schema#label> "hidden description" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#idChannel
+<https://auroral.iot.linkeddata.es/def/tourism#idChannel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#idChannel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Channel> .
+<https://auroral.iot.linkeddata.es/def/tourism#idChannel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#idChannel> <http://www.w3.org/2000/01/rdf-schema#comment> "The identifier of a Channel" .
+<https://auroral.iot.linkeddata.es/def/tourism#idChannel> <http://www.w3.org/2000/01/rdf-schema#label> "id channel" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#identifier
 <https://auroral.iot.linkeddata.es/def/tourism#identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#identifier> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#identifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#identifier> <http://www.w3.org/2000/01/rdf-schema#comment> "The identifier of the tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#identifier> <http://www.w3.org/2000/01/rdf-schema#label> "identifier" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#isBookable
 <https://auroral.iot.linkeddata.es/def/tourism#isBookable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#isBookable> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#isBookable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://auroral.iot.linkeddata.es/def/tourism#isBookable> <http://www.w3.org/2000/01/rdf-schema#comment> "Determines weither the tourist activity is bookable or not" .
 <https://auroral.iot.linkeddata.es/def/tourism#isBookable> <http://www.w3.org/2000/01/rdf-schema#label> "is bookable" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#longDescription
 <https://auroral.iot.linkeddata.es/def/tourism#longDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#longDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#longDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#longDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Long description about the tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#longDescription> <http://www.w3.org/2000/01/rdf-schema#label> "long description" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory
+<https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "The map point of a touris activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#mapPointCategory> <http://www.w3.org/2000/01/rdf-schema#label> "map point category" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#shortDescription
 <https://auroral.iot.linkeddata.es/def/tourism#shortDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://auroral.iot.linkeddata.es/def/tourism#shortDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
 <https://auroral.iot.linkeddata.es/def/tourism#shortDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://auroral.iot.linkeddata.es/def/tourism#shortDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A short decsription about the tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#shortDescription> <http://www.w3.org/2000/01/rdf-schema#label> "short description" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#start
+<https://auroral.iot.linkeddata.es/def/tourism#start> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://auroral.iot.linkeddata.es/def/tourism#start> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Event> .
+<https://auroral.iot.linkeddata.es/def/tourism#start> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://auroral.iot.linkeddata.es/def/tourism#start> <http://www.w3.org/2000/01/rdf-schema#comment> "The start time of an  event" .
+<https://auroral.iot.linkeddata.es/def/tourism#start> <http://www.w3.org/2000/01/rdf-schema#label> "start" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#startDate
 <https://auroral.iot.linkeddata.es/def/tourism#startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://auroral.iot.linkeddata.es/def/tourism#startDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://auroral.iot.linkeddata.es/def/tourism#startDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://auroral.iot.linkeddata.es/def/tourism#Activity> .
+<https://auroral.iot.linkeddata.es/def/tourism#startDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://auroral.iot.linkeddata.es/def/tourism#startDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The start date of a tourist activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#startDate> <http://www.w3.org/2000/01/rdf-schema#label> "start date" .
 # 
 # 
@@ -184,45 +294,75 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/terms/LinguisticSystem
-<http://purl.org/dc/terms/LinguisticSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://purl.org/dc/terms/LinguisticSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Linguistic System" .
+# http://lexvo.org/ontology#Language
+<http://lexvo.org/ontology#Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://lexvo.org/ontology#Language> <http://www.w3.org/2000/01/rdf-schema#comment> "The language of the tourist activity" .
+<http://lexvo.org/ontology#Language> <http://www.w3.org/2000/01/rdf-schema#label> "Language" .
+# 
+# http://www.opengis.net/ont/sf#Polygon
+<http://www.opengis.net/ont/sf#Polygon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.opengis.net/ont/sf#Polygon> <http://www.w3.org/2000/01/rdf-schema#comment> "The polygon coordination of the tourist activity" .
+<http://www.opengis.net/ont/sf#Polygon> <http://www.w3.org/2000/01/rdf-schema#label> "Polygon" .
 # 
 # http://www.w3.org/2003/01/geo/wgs84_pos#Point
 <http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/2000/01/rdf-schema#comment> "The geospatial coordination of the tourist activity place" .
 <http://www.w3.org/2003/01/geo/wgs84_pos#Point> <http://www.w3.org/2000/01/rdf-schema#label> "Point" .
 # 
 # http://xmlns.com/foaf/0.1/Image
 <http://xmlns.com/foaf/0.1/Image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Image> <http://www.w3.org/2000/01/rdf-schema#comment> "An image related to a tourist Activity" .
 <http://xmlns.com/foaf/0.1/Image> <http://www.w3.org/2000/01/rdf-schema#label> "Image" .
+# 
+# https://auroral.iot.linkeddata.es/def/core#User
+<https://auroral.iot.linkeddata.es/def/core#User> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/core#User> <http://www.w3.org/2000/01/rdf-schema#comment> "The person concerned for the tourist activity" .
+<https://auroral.iot.linkeddata.es/def/core#User> <http://www.w3.org/2000/01/rdf-schema#label> "User" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Activity
 <https://auroral.iot.linkeddata.es/def/tourism#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://auroral.iot.linkeddata.es/def/tourism#Activity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
-_:genid1 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <https://auroral.iot.linkeddata.es/def/tourism#coverImage> .
-_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://auroral.iot.linkeddata.es/def/tourism#Activity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is defined as a tourist activity." .
 <https://auroral.iot.linkeddata.es/def/tourism#Activity> <http://www.w3.org/2000/01/rdf-schema#label> "Activity" .
-# 
-# https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty
-<https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3.org/ns/org#Concept> .
-<https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> <http://www.w3.org/2000/01/rdf-schema#label> "Activity Difficulty" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Channel
 <https://auroral.iot.linkeddata.es/def/tourism#Channel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Channel> <http://www.w3.org/2000/01/rdf-schema#comment> "Each activity is posted to a channel" .
 <https://auroral.iot.linkeddata.es/def/tourism#Channel> <http://www.w3.org/2000/01/rdf-schema#label> "Channel" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Currency
 <https://auroral.iot.linkeddata.es/def/tourism#Currency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Currency> <http://www.w3.org/2000/01/rdf-schema#comment> "The currency of a Price (euros, dollars, dinars, etc. )" .
 <https://auroral.iot.linkeddata.es/def/tourism#Currency> <http://www.w3.org/2000/01/rdf-schema#label> "Currency" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#Difficulty
+<https://auroral.iot.linkeddata.es/def/tourism#Difficulty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Difficulty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.w3.org/ns/org#Concept> .
+<https://auroral.iot.linkeddata.es/def/tourism#Difficulty> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines hierarchies linked to the difficulty of tourist activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#Difficulty> <http://www.w3.org/2000/01/rdf-schema#label> "Difficulty" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#Emotion
+<https://auroral.iot.linkeddata.es/def/tourism#Emotion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Emotion> <http://www.w3.org/2000/01/rdf-schema#comment> "The emotion related to a tourist activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#Emotion> <http://www.w3.org/2000/01/rdf-schema#label> "Emotion" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#Event
+<https://auroral.iot.linkeddata.es/def/tourism#Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Event> <http://www.w3.org/2000/01/rdf-schema#comment> "A tourist event" .
+<https://auroral.iot.linkeddata.es/def/tourism#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Price
 <https://auroral.iot.linkeddata.es/def/tourism#Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Price> <http://www.w3.org/2000/01/rdf-schema#comment> "Price of an activity" .
 <https://auroral.iot.linkeddata.es/def/tourism#Price> <http://www.w3.org/2000/01/rdf-schema#label> "Price" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#Tour
+<https://auroral.iot.linkeddata.es/def/tourism#Tour> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://auroral.iot.linkeddata.es/def/tourism#Tour> <http://www.w3.org/2000/01/rdf-schema#comment> "The tour of an activity" .
+<https://auroral.iot.linkeddata.es/def/tourism#Tour> <http://www.w3.org/2000/01/rdf-schema#label> "Tour" .
 # 
 # https://www.w3.org/ns/org#Concept
 <https://www.w3.org/ns/org#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.w3.org/ns/org#Concept> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines hierarchies linked to the difficulty of tourist activity" .
 <https://www.w3.org/ns/org#Concept> <http://www.w3.org/2000/01/rdf-schema#label> "Concept" .
 # 
 # 
@@ -234,29 +374,51 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # #################################################################
 # 
 # 
-# https://auroral.iot.linkeddata.es/def/tourism#
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/description> "Ontology code created by Chowlk" .
-<https://auroral.iot.linkeddata.es/def/tourism#> <http://purl.org/dc/terms/title> "The AURORAL Tourism Ontology" .
+# https://auroral.iot.linkeddata.es/def/tourism#Agree
+<https://auroral.iot.linkeddata.es/def/tourism#Agree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://auroral.iot.linkeddata.es/def/tourism#Agree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Emotion> .
+<https://auroral.iot.linkeddata.es/def/tourism#Agree> <http://www.w3.org/2000/01/rdf-schema#label> "agree" .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#Disagree
+<https://auroral.iot.linkeddata.es/def/tourism#Disagree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://auroral.iot.linkeddata.es/def/tourism#Disagree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Emotion> .
+<https://auroral.iot.linkeddata.es/def/tourism#Disagree> <http://www.w3.org/2000/01/rdf-schema#label> "disagree" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Easy
 <https://auroral.iot.linkeddata.es/def/tourism#Easy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://auroral.iot.linkeddata.es/def/tourism#Easy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#Easy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Difficulty> .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Hard
 <https://auroral.iot.linkeddata.es/def/tourism#Hard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://auroral.iot.linkeddata.es/def/tourism#Hard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#Hard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Difficulty> .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#Medium
 <https://auroral.iot.linkeddata.es/def/tourism#Medium> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://auroral.iot.linkeddata.es/def/tourism#Medium> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#Medium> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Difficulty> .
+# 
+# https://auroral.iot.linkeddata.es/def/tourism#Neutral
+<https://auroral.iot.linkeddata.es/def/tourism#Neutral> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://auroral.iot.linkeddata.es/def/tourism#Neutral> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Emotion> .
+<https://auroral.iot.linkeddata.es/def/tourism#Neutral> <http://www.w3.org/2000/01/rdf-schema#label> "neutral" .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#VeryEasy
 <https://auroral.iot.linkeddata.es/def/tourism#VeryEasy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://auroral.iot.linkeddata.es/def/tourism#VeryEasy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#VeryEasy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Difficulty> .
 # 
 # https://auroral.iot.linkeddata.es/def/tourism#VeryHard
 <https://auroral.iot.linkeddata.es/def/tourism#VeryHard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://auroral.iot.linkeddata.es/def/tourism#VeryHard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#ActivityDifficulty> .
+<https://auroral.iot.linkeddata.es/def/tourism#VeryHard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://auroral.iot.linkeddata.es/def/tourism#Difficulty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/2000/01/rdf-schema#comment> "The title of a tourist activity" .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/2000/01/rdf-schema#label> "title" .
 # 
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
